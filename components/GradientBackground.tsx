@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const MovingBackground = () => {
 
   return (
-    <div className='absolute top-0 w-full h-full overflow-hidden -z-10 blur-[4rem] '>
+    <div className='absolute top-0 w-full h-full overflow-hidden -z-10 '>
       <motion.div
         initial={{ opacity: 0, y: 100, scale: 0.7 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
