@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${inter.className} bg-zinc-950 text-gray-50 text-opacity-90 relative pt-28 sm:pt-36`}
+        className={`${inter.className} bg-zinc-950 text-gray-50 text-opacity-90 relative pt-28 sm:pt-36 max-w-full overflow-x-hidden`}
       >
         <MovingBackground />
         
