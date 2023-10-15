@@ -18,7 +18,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 mt-5 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -32,12 +32,12 @@ export default function Intro() {
           >
             <Image
               src="/logo.png"
-              alt="Ricardo portrait"
+              alt="Logo"
               width="192"
               height="192"
               quality="95"
               priority={true}
-              className="object-cover rounded-full w-44 h-44 drop-shadow-xl"
+              className="object-cover rounded-full w-42 h-42 drop-shadow-xl opacity-90"
             />
           </motion.div>
 
@@ -45,14 +45,14 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mb-14 mt-5 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">Hello, I'm Sander.</span> I'm a {" "}
         <span className="font-bold">full-stack developer</span> creating{" "}
         <span className="font-bold">beautiful</span> & <span className="font-bold"> innovative </span> 
-        <span className="italic">sites & apps</span>. With a current focus on{" "}
+        <span className="italic">websites</span>. With a current focus on{" "}
         <span className="underline">React (Next.js)</span>.
       </motion.h1>
 
@@ -66,7 +66,7 @@ export default function Intro() {
       >
         <Link
           href="#contact"
-          className="flex items-center gap-2 py-3 text-gray-200 transition rounded-full outline-none bg-zinc-900 group px-7 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 border border-white  border-black/40 bg-opacity-75 border-opacity-40 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem]"
+          className="flex items-center gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none group px-7 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
@@ -76,9 +76,9 @@ export default function Intro() {
           <BsArrowRight className="transition opacity-70 group-hover:translate-x-1" />
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-row items-center justify-center gap-2">
           <a
-            className=" p-4 text-gray-200 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 hover:bg-gray-950 transition cursor-pointer borderBlack bg-gray-900"
+            className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
             href="https://linkedin.com"
             target="_blank"
           >
@@ -86,14 +86,15 @@ export default function Intro() {
           </a>
 
           <a
-            className=" p-4 text-gray-200 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 hover:bg-gray-950 transition cursor-pointer borderBlack bg-gray-900"
+            className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
             href="https://github.com"
             target="_blank"
           >
             <FaGithubSquare />
           </a>
         </div>
-        
+
+
       </motion.div>
     </section>
   );

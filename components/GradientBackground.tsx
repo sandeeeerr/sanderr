@@ -13,7 +13,7 @@ const MovingBackground = () => {
   };
 
   return (
-    <div className='overflow-hidden'>
+    <div className='absolute top-0 w-full h-full overflow-hidden -z-10'>
       <motion.div
         className={`
           bg-[#532235] 
