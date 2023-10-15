@@ -8,7 +8,7 @@ import Skills from "@/components/skills";
 
 export default function Home() {
   return (
-    <section className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28">
+    <section className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28 mx-auto">
 
       <h1 className="mb-14 mt-2 px-4 text-2xl font-medium !leading-[1.5] text-center sm:text-4xl">
         <span className="font-bold">Bacon ipsum</span>
