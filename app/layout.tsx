@@ -7,6 +7,7 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import MovingBackground from "@/components/GradientBackground";
+import Head from "next/head";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,6 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+      </Head>
       <body
         className={`${inter.className} bg-zinc-950 text-gray-50 text-opacity-90 relative pt-28 sm:pt-36 max-w-full overflow-x-hidden`}
       >
