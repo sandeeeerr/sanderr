@@ -15,7 +15,7 @@ const MovingBackground = () => {
   return (
     <div className='overflow-x-hidden max-w-screen'>
       <motion.div
-        className={`bg-[#532235] absolute top-[-6%] -z-10 right-[0rem] md:right-[5rem] lg:right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] `}
+        className={`bg-[#532235] absolute top-0 -z-10 right-[0rem] md:right-[5rem] lg:right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] `}
         animate={animate}
         transition={{
           default: {
@@ -25,7 +25,7 @@ const MovingBackground = () => {
         }}
       ></motion.div>
       <motion.div
-        className={`bg-[#123853] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]`}
+        className={`bg-[#123853] absolute top-0 -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]`}
         animate={animate}
         transition={{
           default: {
