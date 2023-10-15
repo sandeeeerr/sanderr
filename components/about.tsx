@@ -21,9 +21,9 @@ export default function About() {
       <p className="mb-3">
         After graduating in{" "}
         <span className="font-medium">Application Development</span>, 
-        I'm pursuing my passion for crafting sites & apps while studying Communication and Multimedia Design. {" "}
-        My enthusiasm for
-        <span className="italic">building sites & apps </span>from scratch keeps me {" "}
+        I'm pursuing my passion for crafting websites & web apps while studying Communication and Multimedia Design. {" "}
+        My enthusiasm for {" "}
+        <span className="italic">creating websites & web apps </span>from scratch keeps me {" "}
         <span className="underline">hooked</span> on all things web-related. My core stack is {" "}
         <span className="font-medium">
           React, Next.js, Prisma, Tailwind and TypeScript

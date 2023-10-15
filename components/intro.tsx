@@ -39,7 +39,7 @@ export default function Intro() {
               height="192"
               quality="95"
               priority={true}
-              className="object-cover rounded-full w-42 h-42 drop-shadow-xl opacity-90"
+              className="object-cover rounded-full w-38 h-38 drop-shadow-xl opacity-90"
             />
           </motion.div>
 
@@ -47,7 +47,7 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-14 mt-5 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mb-14 mt-2 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
