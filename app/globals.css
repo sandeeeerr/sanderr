@@ -13,3 +13,12 @@ html.dark {
 .borderBlack {
   @apply border border-black/10;
 }
+
+@supports (-webkit-touch-callout: none) {
+  body {
+      height: -webkit-fill-available;
+  }
+  html {
+      height: -webkit-fill-available;
+  }
+}

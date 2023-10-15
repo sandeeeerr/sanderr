@@ -15,7 +15,7 @@ const MovingBackground = () => {
   return (
     <>
       <motion.div
-        className={`bg-[#532235] absolute top-[-6rem] -z-10 lg:right-[10rem] xl:right-[20rem] 2xl:right-[25rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] md:right-[4rem] sm:right-0 `}
+        className={`bg-[#532235] absolute top-[-6rem] -z-10 right-[-2rem] md:right-[5rem] lg:right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] `}
         animate={animate}
         transition={{
           default: {
@@ -25,7 +25,7 @@ const MovingBackground = () => {
         }}
       ></motion.div>
       <motion.div
-        className={`bg-[#123853] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] 3xl:left-[10rem] 4xl:left-[-20rem]`}
+        className={`bg-[#123853] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]`}
         animate={animate}
         transition={{
           default: {
