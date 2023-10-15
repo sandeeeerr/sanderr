@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { FaGithubSquare } from "react-icons/fa";
+import { FaGithubSquare, } from "react-icons/fa";
+import { TbBrandNextjs, TbSend } from "react-icons/tb";
+import { BsSend } from "react-icons/bs";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
@@ -53,7 +55,7 @@ export default function Intro() {
         <span className="font-bold">full-stack developer</span> creating{" "}
         <span className="font-bold">beautiful</span> & <span className="font-bold"> innovative </span> 
         <span className="italic">websites</span>. With a current focus on{" "}
-        <span className="underline">React (Next.js)</span>.
+        <span className="underline">Next.js</span> <TbBrandNextjs className="inline " /> 
       </motion.h1>
 
       <motion.div
@@ -72,8 +74,8 @@ export default function Intro() {
             setTimeOfLastClick(Date.now());
           }}
         >
-          Contact me here{" "}
-          <BsArrowRight className="transition opacity-70 group-hover:translate-x-1" />
+          Get in Touch!{" "}
+          <TbSend className="transition opacity-80 group-hover:translate-x-1" />
         </Link>
 
         <div className="flex flex-row items-center justify-center gap-2">
