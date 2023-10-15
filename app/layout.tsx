@@ -8,7 +8,7 @@ import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import MovingBackground from "@/components/GradientBackground";
 import Head from "next/head";
-
+import AnimatedCursor from "react-animated-cursor"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,19 +28,24 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
       </Head>
       <body
-        className={`${inter.className} bg-zinc-950 text-gray-50 text-opacity-90 relative pt-28 sm:pt-36 max-w-full overflow-x-hidden`}
+        className={`${inter.className} App bg-zinc-950 text-gray-50 text-opacity-90 relative pt-28 sm:pt-36 max-w-full overflow-x-hidden`}
       >
+        <AnimatedCursor
+          innerSize={12}
+          outerSize={8}
+          color='225, 225, 227'
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={5}
+        />
         <MovingBackground />
-        
-        <ThemeContextProvider>
-          <ActiveSectionContextProvider>
-            <Header />
-            {children}
-            <Footer />
-
-            <Toaster position="top-right" />
-          </ActiveSectionContextProvider>
-        </ThemeContextProvider>
+          
+        <ActiveSectionContextProvider>
+          <Header />
+          {children}
+          <Footer />
+          <Toaster position="top-right" />
+        </ActiveSectionContextProvider>
         
       </body>
     </html>

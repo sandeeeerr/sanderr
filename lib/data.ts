@@ -2,9 +2,8 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
+import StraatMaatje from "@/public/StraatMaatje.png";
+import Ottiya from "@/public/Ottiya.png";
 
 export const links = [
   {
@@ -62,46 +61,40 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "StraatMaatje",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "Empowering homeless youth by providing a resource-finding app and an AI chat support for immediate care and assistance.",
+    tags: ["React", "Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
+    imageUrl: StraatMaatje,
+    Url: 'https://street-gpt.vercel.app/',
   },
   {
-    title: "rmtDev",
+    title: "Ottiya",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
-  },
-  {
-    title: "Word Analytics",
-    description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
+      "An interactive web app where children learn the Korean alphabet through playful, on-screen drawing activities.",
+    tags: ["CSS", "jQuery", "Webpack", "PWA"],
+    imageUrl: Ottiya,
+    Url: 'https://ottiya.itch.io/hangul-simple-consonants',
   },
 ] as const;
 
 export const skillsData = [
-  "HTML",
   "CSS",
+  "Database Management",
+  "Framer Motion",
+  "Git",
+  "HTML",
   "JavaScript",
-  "TypeScript",
-  "React",
+  "jQuery",
   "Next.js",
   "Node.js",
-  "Git",
-  "Tailwind",
+  "PHP",
   "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
-  "Python",
-  "Django",
-  "Framer Motion",
+  "React",
+  "Ruby on Rails",
+  "Sass",
+  "Tailwind",
+  "TypeScript",
+  "Webpack",
+  "Wordpress",
 ] as const;
