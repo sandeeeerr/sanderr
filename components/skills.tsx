@@ -40,7 +40,7 @@ export default function Skills() {
     {
       title: 'Coding Time',
       value: wakatimeData?.seconds
-      ? `${Math.round(wakatimeData.seconds / 60 / 60)} hrs, ${Math.round(wakatimeData.seconds / 60 ) - Math.round(wakatimeData.seconds / 60 / 60 ) * 60} min`
+      ? `${Math.round(wakatimeData.seconds / 60 / 60)} hrs, ${Math.round(wakatimeData.seconds / 60 ) - Math.round(wakatimeData.seconds / 60 / 60 ) * 60 + 30} min`
       : undefined,
       icon: '',
     },
