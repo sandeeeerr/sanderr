@@ -13,7 +13,7 @@ import AnimatedCursor from "react-animated-cursor"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Sander | Personal Portfolio",
+  title: "Sander | Portfolio",
   description: "Junior full-stack developer",
 };
 

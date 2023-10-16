@@ -28,7 +28,7 @@ export default function About() {
         <span className="font-medium">
           React, Next.js, Prisma, Tailwind and TypeScript
         </span>. 
-        I am also familiar with 
+        I am also familiar with {" "}
         <span className="font-medium">
         Ruby on Rails and Framer Motion
         </span>. Aiming to become a full-stack developer, {" "}
