@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-// import { env } from '@/env'
+import { env } from '@/env'
 
 export const runtime = 'edge'
 export const dynamic = 'force-dynamic'
@@ -10,7 +10,7 @@ export const GET = async () => {
     'https://wakatime.com/api/v1/users/current/all_time_since_today',
     {
       headers: {
-        Authorization: `Basic ${Buffer.from("waka_68291b7f-567a-4b33-af73-0741c67d2335").toString(
+        Authorization: `Basic ${Buffer.from(env.WAKATIME_API_KEY).toString(
           'base64'
         )}`
       }
