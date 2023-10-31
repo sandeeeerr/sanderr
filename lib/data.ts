@@ -34,12 +34,36 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Friese poort",
-    location: "sneek",
+    title: "VMBO-KGT, Techniek",
+    location: "Bolsward, Marne College",
     description:
-      "",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2013 - 2017",
+  },
+  {
+    title: "MBO 4, Application and Media Developer",
+    location: "Sneek, ROC Friese Poort",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    icon: React.createElement(LuGraduationCap),
+    date: "2017 - 2021",
+  },
+  {
+    title: "Internship, WebDeveloper",
+    location: "Witmarsum, ZeeDesign",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2018 (6 mth) - 2021 (6 mth)",
+  },
+  {
+    title: "Bachelor, Communication and Multimedia",
+    location: "Leeuwarden, NHL Stenden University of Applied Sciences",
+    description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    icon: React.createElement(LuGraduationCap),
+    date: "2021 - present",
   },
 ] as const;
 
