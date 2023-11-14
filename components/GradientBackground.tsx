@@ -34,36 +34,28 @@ const MovingBackground = () => {
         }}
         className=''
       >
-      <motion.div
-        className={`
-          bg-[#532235] 
-          absolute 
-          -z-10 
-          h-[40rem] 
-          w-[35rem]
-          sm:w-[50rem] 
-          2xl:w-[60rem] 
-          top-[0rem] 
-          right-[-5rem] 
-          sm:right-[-5rem] 
-          md:right-[0rem] 
-          lg:right-[5rem] 
-          xl:right-[10rem] 
-          2xl:right-[10rem]  
-          rounded-full 
-          blur-[10rem]  
-        `}
-        animate={animate1}
-        transition={{
-          default: {
-            duration: 15,
-            repeatType: "reverse",
-            repeat: Infinity,
-          },
-        }}
-      ></motion.div>
-      <motion.div
-        className={`
+      <div
+      className={`
+        bg-[#532235] 
+        absolute 
+        -z-10 
+        h-[40rem] 
+        w-[35rem]
+        sm:w-[50rem] 
+        2xl:w-[60rem] 
+        top-[0rem] 
+        right-[-5rem] 
+        sm:right-[-5rem] 
+        md:right-[0rem] 
+        lg:right-[5rem] 
+        xl:right-[10rem] 
+        2xl:right-[10rem]  
+        rounded-full 
+        blur-[10rem]  
+      `}
+      ></div>
+      <div
+      className={`
         bg-[#123853] 
         absolute 
         -z-10 
@@ -80,18 +72,8 @@ const MovingBackground = () => {
         2xl:left-[10rem]
         rounded-full 
         blur-[10rem] 
-        `}
-        animate={animate2}
-        transition={{
-          default: {
-            duration: 15,
-            repeatType: "reverse",
-            repeat: Infinity,
-          },
-        }}
-      ></motion.div>
-
-
+      `}
+      ></div>
       </motion.div>
     </div>
 

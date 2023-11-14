@@ -74,6 +74,7 @@ export default function Intro() {
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
+            window.location.href='mailto:sandervries@me.com?subject=Contact%20sanderr.site';
           }}
         >
           Get in Touch!{" "}
