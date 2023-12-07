@@ -4,6 +4,7 @@ import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import StraatMaatje from "@/public/StraatMaatje.png";
 import Ottiya from "@/public/Ottiya.png";
+import Untitledone from "@/public/Untitledone.png";
 
 export const links = [
   {
@@ -83,6 +84,14 @@ export const projectsData = [
     tags: ["CSS", "jQuery", "Webpack", "PWA"],
     imageUrl: Ottiya,
     Url: 'https://ottiya.itch.io/hangul-simple-consonants',
+  },
+  {
+    title: "UntitledOne",
+    description:
+      "UntitledOne is a resource that empowers artist to create, collaborate, and navigate their musical journey.",
+      tags: ["React", "Next.js", "Prisma", "NextAuth", "TypeScript", "Tailwind" ],
+    imageUrl: Untitledone,
+    Url: 'https://www.untitled-one.app',
   },
 ] as const;
 

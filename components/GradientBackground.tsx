@@ -80,5 +80,4 @@ const MovingBackground = () => {
   );
 };
 
-
 export default MovingBackground;

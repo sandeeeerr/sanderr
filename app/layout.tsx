@@ -30,14 +30,14 @@ export default function RootLayout({
       <body
         className={`${inter.className} App bg-zinc-950 text-gray-50 text-opacity-90 relative pt-28 sm:pt-36 max-w-full overflow-x-hidden`}
       >
-        <AnimatedCursor
+        {/* <AnimatedCursor
           innerSize={12}
           outerSize={8}
           color='225, 225, 227'
           outerAlpha={0.2}
           innerScale={0.7}
           outerScale={5}
-        />
+        /> */}
         <MovingBackground />
           
         <ActiveSectionContextProvider>
