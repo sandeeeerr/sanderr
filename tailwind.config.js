@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-config.colors = require('tailwindcss/colors')
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,6 +15,11 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    {
+      pattern: /text-(red|green|yellow|blue)-(100|200|300|400|500)/,
+    },
+],
   plugins: [],
   darkMode: "class",
 };
