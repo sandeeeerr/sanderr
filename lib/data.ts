@@ -71,14 +71,16 @@ export const experiencesData = [
 export const projectsData = [
   {
     title: "StraatMaatje",
+    statusColor: "text-green-500",
     description:
       "Empowering homeless youth by providing a resource-finding app and an AI chat support for immediate care and assistance.",
-    tags: ["React", "Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
+    tags: ["Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
     imageUrl: StraatMaatje,
     Url: 'https://street-gpt.vercel.app/',
   },
   {
     title: "Ottiya",
+    statusColor: "text-green-500",
     description:
       "An interactive web app where children learn the Korean alphabet through playful, on-screen drawing activities.",
     tags: ["CSS", "jQuery", "Webpack", "PWA"],
@@ -87,9 +89,10 @@ export const projectsData = [
   },
   {
     title: "UntitledOne",
+    statusColor: "text-yellow-500",
     description:
-      "UntitledOne is a resource that empowers artist to create, collaborate, and navigate their musical journey.",
-      tags: ["React", "Next.js", "Prisma", "NextAuth", "TypeScript", "Tailwind" ],
+      "UntitledOne is an Open-source project that empowers artist to create, collaborate, and navigate their musical journey.",
+      tags: ["Next.js", "Prisma", "NextAuth", "TypeScript", "Tailwind" ],
     imageUrl: Untitledone,
     Url: 'https://www.untitled-one.app',
   },

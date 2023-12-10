@@ -6,11 +6,12 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import {FaExternalLinkAlt} from "react-icons/fa"
-
+import { GoDotFill } from 'react-icons/go';
 type ProjectProps = (typeof projectsData)[number];
 
 export default function Project({
   title,
+  statusColor,
   description,
   tags,
   imageUrl,
@@ -36,8 +37,11 @@ export default function Project({
       <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] transition sm:group-even:pl-8 text-white bg-white/10 hover:bg-white/20">
         <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
           <div className="flex">
+            <div className="flex items-center justify-between">
+              <span className={`${statusColor} mr-1`}><GoDotFill /></span> 
+            </div>
             <h3 className="text-2xl font-semibold">{title}</h3>
-            <a className="flex items-center mt-1 text-white/70 hover:text-white/95" href={Url} target="_blank"><FaExternalLinkAlt fontSize={16} className="inline mx-3" /></a>
+            <a className="flex items-center mt-0.5 text-white/70 hover:text-white/95" href={Url} target="_blank"><FaExternalLinkAlt fontSize={16} className="inline mx-3" /></a>
 
           </div>
           <p className="mt-2 leading-relaxed text-white/70">
