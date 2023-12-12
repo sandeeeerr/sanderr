@@ -113,6 +113,7 @@ export const skillsData = [
   "React",
   "Ruby on Rails",
   "Sass",
+  "Swift",
   "Tailwind",
   "TypeScript",
   "Webpack",
