@@ -27,7 +27,11 @@ export default function About() {
         <span className="underline">hooked</span> on all things web-related. My core stack is {" "}
         <span className="font-medium">
           React, Next.js, Prisma, Tailwind and TypeScript
-        </span>. 
+        </span> 
+        , and recently more focussed on {" "}
+        <span className="font-medium">
+          Laravel, Livewire, and Alpine.js
+        </span>. {" "}
         I am also familiar with {" "}
         <span className="font-medium">
         Ruby on Rails and Framer Motion

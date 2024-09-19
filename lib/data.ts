@@ -66,12 +66,20 @@ export const experiencesData = [
     icon: React.createElement(LuGraduationCap),
     date: "2021 - present",
   },
+  {
+    title: "Internship, Full-Stack WebDeveloper",
+    location: "Groningen, Concept7",
+    description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2024 - present",
+  },
 ] as const;
 
 export const projectsData = [
   {
     title: "StraatMaatje",
-    statusColor: "text-green-500",
+    statusColor: "text-red-500",
     description:
       "Empowering homeless youth by providing a resource-finding app and an AI chat support for immediate care and assistance.",
     tags: ["Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
@@ -89,7 +97,7 @@ export const projectsData = [
   },
   {
     title: "UntitledOne",
-    statusColor: "text-yellow-500",
+    statusColor: "text-red-500",
     description:
       "UntitledOne is an Open-source project that empowers artist to create, collaborate, and navigate their musical journey.",
       tags: ["Next.js", "Prisma", "NextAuth", "TypeScript", "Tailwind" ],
@@ -106,6 +114,8 @@ export const skillsData = [
   "HTML",
   "JavaScript",
   "jQuery",
+  "Laravel",
+  "Livewire",
   "Next.js",
   "Node.js",
   "PHP",
