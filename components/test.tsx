@@ -39,7 +39,7 @@ export default function Projects() {
       <div>
         {projects.map((project) => (
           <React.Fragment key={project.id}>
-            <Project {...project} />
+            {/* <Project {...project} /> */}
           </React.Fragment>
         ))}
       </div>

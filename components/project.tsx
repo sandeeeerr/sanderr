@@ -7,9 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import {FaExternalLinkAlt} from "react-icons/fa"
 import { GoDotFill } from 'react-icons/go';
-import { ProjectType } from "@/src/types/project";
-
-type ProjectProps = ProjectType;
+type ProjectProps = (typeof projectsData)[number];
 
 export default function Project({
   title,
@@ -26,7 +24,6 @@ export default function Project({
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-  const parsedTags = typeof tags === "string" ? JSON.parse(tags) : tags;
 
   return (
     <motion.div
@@ -51,7 +48,7 @@ export default function Project({
             {description}
           </p>
           <ul className="flex flex-wrap gap-2 mt-4 sm:mt-auto">
-            {parsedTags.map((tag : string, index : number) => (
+            {tags.map((tag, index) => (
               <li
                 className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider rounded-full text-white/70"
                 key={index}
@@ -66,20 +63,18 @@ export default function Project({
           src={imageUrl}
           alt="Project I worked on"
           quality={95}
-          width={1280}
-          height={1280}
           className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-            transition 
-            group-hover:scale-[1.04]
-            group-hover:-translate-x-3
-            group-hover:translate-y-3
-            group-hover:-rotate-2
+        transition 
+        group-hover:scale-[1.04]
+        group-hover:-translate-x-3
+        group-hover:translate-y-3
+        group-hover:-rotate-2
 
-            group-even:group-hover:translate-x-3
-            group-even:group-hover:translate-y-3
-            group-even:group-hover:rotate-2
+        group-even:group-hover:translate-x-3
+        group-even:group-hover:translate-y-3
+        group-even:group-hover:rotate-2
 
-            group-even:right-[initial] group-even:-left-40"
+        group-even:right-[initial] group-even:-left-40"
         />
       </section>
     </motion.div>
