@@ -35,13 +35,13 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/logo.png"
-              alt="Logo"
-              width="192"
-              height="192"
+              src="/sander.png"
+              alt="Sander"
+              width="300"
+              height="300"
               quality="95"
               priority={true}
-              className="object-cover rounded-full w-38 h-38 drop-shadow-xl opacity-90"
+              className="h-44 w-44 rounded-full object-cover border-[0.30rem] border-white/10 shadow-xl"
             />
           </motion.div>
 
@@ -49,7 +49,7 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-14 mt-0 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mb-14 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl mt-12"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >

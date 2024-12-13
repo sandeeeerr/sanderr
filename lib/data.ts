@@ -35,44 +35,44 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "VMBO-KGT, Techniek",
-    location: "Bolsward, Marne College",
+    title: "Internship, Full-Stack WebDeveloper",
+    location: "Groningen, Concept7",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2013 - 2017",
-  },
-  {
-    title: "MBO 4, Application and Media Developer",
-    location: "Sneek, ROC Friese Poort",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2017 - 2021",
-  },
-  {
-    title: "Internship, WebDeveloper",
-    location: "Witmarsum, ZeeDesign",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    "Working as a full-stack developer in the TALL stack, gaining experience in teamwork, Git workflows, and full-stack development.",
     icon: React.createElement(CgWorkAlt),
-    date: "2018 (6 mth) - 2021 (6 mth)",
+    date: "2024 - present",
   },
   {
     title: "Bachelor, Communication and Multimedia",
     location: "Leeuwarden, NHL Stenden University of Applied Sciences",
     description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    "Expanded skills in UX/UI and development, worked on numerous projects, and gained experience in Scrum and creative techniques.",
     icon: React.createElement(LuGraduationCap),
     date: "2021 - present",
   },
   {
-    title: "Internship, Full-Stack WebDeveloper",
-    location: "Groningen, Concept7",
+    title: "Internship, WebDeveloper",
+    location: "Witmarsum, ZeeDesign",
     description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+      "Handled all aspects of web development, from backend to frontend, focusing on WordPress websites and custom projects.",
     icon: React.createElement(CgWorkAlt),
-    date: "2024 - present",
+    date: "2018 (6 mth) - 2021 (6 mth)",
+  },
+  {
+    title: "MBO 4, Application and Media Developer",
+    location: "Sneek, ROC Friese Poort",
+    description:
+      "Learned the basics of development, including PHP, SQL, and JavaScript, covering both frontend and backend fundamentals.",
+    icon: React.createElement(LuGraduationCap),
+    date: "2017 - 2021",
+  },
+  {
+    title: "VMBO-KGT, Techniek",
+    location: "Bolsward, Marne College",
+    description:
+      "Completed general education with a focus on practical and technical subjects.",
+    icon: React.createElement(LuGraduationCap),
+    date: "2013 - 2017",
   },
 ] as const;
 
@@ -97,12 +97,12 @@ export const projectsData = [
   },
   {
     title: "UntitledOne",
-    statusColor: "text-red-500",
+    statusColor: "text-orange-500",
     description:
       "UntitledOne is an Open-source project that empowers artist to create, collaborate, and navigate their musical journey.",
       tags: ["Next.js", "Prisma", "NextAuth", "TypeScript", "Tailwind" ],
     imageUrl: Untitledone,
-    Url: 'https://www.untitled-one.app',
+    Url: 'https://untitledone.nl',
   },
 ] as const;
 
