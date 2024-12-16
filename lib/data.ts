@@ -97,15 +97,6 @@ export const projectsData = [
     Url: 'https://street-gpt.vercel.app/',
   },
   {
-    title: "Alphabet PWA",
-    statusColor: "text-green-500",
-    description:
-      "An interactive web app for learning the Korean alphabet through drawing, developed for Ottiya.",
-    tags: ["CSS", "jQuery", "Webpack", "PWA"],
-    imageUrl: Ottiya,
-    Url: 'https://ottiya.itch.io/hangul-simple-consonants',
-  },
-  {
     title: "UntitledOne",
     statusColor: "text-orange-500",
     description:
@@ -114,6 +105,16 @@ export const projectsData = [
     imageUrl: Untitledone,
     Url: 'https://untitledone.nl',
   },
+  {
+    title: "Alphabet PWA",
+    statusColor: "text-green-500",
+    description:
+      "An interactive web app for learning the Korean alphabet through drawing, developed for Ottiya.",
+    tags: ["CSS", "jQuery", "Webpack", "PWA"],
+    imageUrl: Ottiya,
+    Url: 'https://ottiya.itch.io/hangul-simple-consonants',
+  },
+
 ] as const;
 
 export const skillsData = [

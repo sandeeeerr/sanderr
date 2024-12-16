@@ -41,7 +41,7 @@ export default function Intro() {
               height="300"
               quality="95"
               priority={true}
-              className="h-40 w-40 rounded-full object-cover border-[0.30rem] border-white/15 shadow-xl"
+              className="h-40 w-40 rounded-full object-cover border-[0.30rem] border-white/10 shadow-xl"
             />
           </motion.div>
 
@@ -98,7 +98,6 @@ export default function Intro() {
             <FaGithubSquare />
           </a>
         </div>
-
 
       </motion.div>
     </section>
