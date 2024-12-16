@@ -5,6 +5,7 @@ import { LuGraduationCap } from "react-icons/lu";
 import StraatMaatje from "@/public/StraatMaatje.png";
 import Ottiya from "@/public/Ottiya.png";
 import Untitledone from "@/public/Untitledone.png";
+import EcoMobi from "@/public/EcoMobi2.png";
 
 export const links = [
   {
@@ -78,19 +79,28 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "EcoMobi",
+    statusColor: "text-green-500",
+    description:
+      "During my internship at Concept7, I contributed to Mobisitie, a Hanze project supporting rural mobility transitions with data-driven tools.",
+    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Chart.js" ],
+    imageUrl: EcoMobi,
+    Url: '#',
+  },
+  {
     title: "StraatMaatje",
     statusColor: "text-red-500",
     description:
-      "Empowering homeless youth by providing a resource-finding app and an AI chat support for immediate care and assistance.",
+      "Empowering homeless youth with a resource-finding app and AI chat support for immediate care, created for MEE lab.",
     tags: ["Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
     imageUrl: StraatMaatje,
     Url: 'https://street-gpt.vercel.app/',
   },
   {
-    title: "Ottiya",
+    title: "Alphabet PWA",
     statusColor: "text-green-500",
     description:
-      "An interactive web app where children learn the Korean alphabet through playful, on-screen drawing activities.",
+      "An interactive web app for learning the Korean alphabet through drawing, developed for Ottiya.",
     tags: ["CSS", "jQuery", "Webpack", "PWA"],
     imageUrl: Ottiya,
     Url: 'https://ottiya.itch.io/hangul-simple-consonants',
