@@ -82,7 +82,7 @@ export const projectsData = [
     title: "EcoMobi",
     statusColor: "text-green-500",
     description:
-      "During my internship at Concept7, I contributed to Mobisitie, a Hanze project supporting rural mobility transitions with data-driven tools.",
+      "During my internship at Concept7, I contributed to EcoMobi, a Hanze project supporting rural mobility transitions with data-driven tools.",
     tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Chart.js" ],
     imageUrl: EcoMobi,
     Url: '#',
