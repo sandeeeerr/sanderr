@@ -20,32 +20,27 @@ export default function About() {
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
         After graduating in{" "}
-        <span className="font-medium">Application Development</span>, 
-        I'm pursuing my passion for crafting websites & web apps while studying Communication and Multimedia Design. {" "}
-        My enthusiasm for {" "}
-        <span className="italic">creating websites & web apps </span>from scratch keeps me {" "}
-        <span className="underline">hooked</span> on all things web-related. My core stack is {" "}
-        <span className="font-medium">
-          React, Next.js, Prisma, Tailwind and TypeScript
-        </span> 
-        , and recently more focussed on {" "}
-        <span className="font-medium">
-          Laravel, Livewire, and Alpine.js
-        </span>. {" "}
-        I am also familiar with {" "}
-        <span className="font-medium">
-        Ruby on Rails and Framer Motion
-        </span>. Aiming to become a full-stack developer, {" "}
-        <span className="font-medium">I'm open to freelance projects</span> to hone my skills pre-graduation.
+        <span className="font-medium">Communication and Multimedia Design</span> in{" "}
+        <span className="font-medium">Leeuwarden, the Netherlands</span>, while{" "}
+        <span className="italic">crafting websites & web apps</span>. My core stack includes{" "}
+        <span className="font-medium">React, Next.js, Tailwind, and TypeScript</span>. During my internship at Concept7, I’m{" "}
+        <span className="underline">gaining valuable experience</span> with{" "}
+        <span className="font-medium">Laravel, Livewire, and Alpine.js</span>. I also{" "}
+        <span className="italic">enjoy using Motion</span> to add interactivity to projects.
       </p>
 
       <p className="mb-3">
-        <span className="italic">Away from codes and screens</span>, I immerse myself in DJ’ing and producing house and techno beats.
+        <span className="italic">Beyond code</span>, I immerse myself in{" "}
+        <span className="font-medium">DJ’ing</span> and producing{" "}
+        <span className="underline">house & techno</span> beats.
       </p>
 
       <p>
-        Feel free to explore my portfolio and don’t hesitate to <span className="italic">drop a message</span> if you’d like to {" "}
-        <span className="font-medium">connect</span>, <span className="font-medium">collaborate</span>, or simply <span className="font-medium">chat</span> about tech and tunes!
+        Feel free to explore my portfolio and don’t hesitate to{" "}
+        <span className="italic">drop a message</span> if you’d like to{" "}
+        <span className="font-medium">connect</span>,{" "}
+        <span className="font-medium">collaborate</span>, or simply{" "}
+        <span className="underline">chat about tech and tunes</span>!
       </p>
     </motion.section>
   );
