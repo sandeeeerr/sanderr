@@ -22,7 +22,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 mt-4 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 mt-0 md:mt-4 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -41,7 +41,7 @@ export default function Intro() {
               height="300"
               quality="95"
               priority={true}
-              className="h-40 w-40 rounded-full object-cover border-[0.30rem] border-white/10 shadow-xl"
+              className="h-32 w-32 md:h-40 md:w-40 rounded-full object-cover border-[0.30rem] border-white/10 shadow-xl"
             />
           </motion.div>
 
@@ -49,7 +49,7 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-14 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl mt-8"
+        className="mb-10 md:mb-14 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl mt-8"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -61,7 +61,7 @@ export default function Intro() {
       </motion.h1>
 
       <motion.div
-        className="flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium sm:flex-row"
+        className="flex flex-col items-center justify-center gap-4 px-2 md:px-4 text-lg font-medium sm:flex-row"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
