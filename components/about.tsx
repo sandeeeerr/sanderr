@@ -19,8 +19,9 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        After graduating in{" "}
-        <span className="font-medium">Communication and Multimedia Design</span> in{" "}
+      After graduating in{" "}
+  <span className="font-medium">Application Development</span>, I'm now studying{" "}
+  <span className="font-medium">Communication and Multimedia Design</span> in{" "}
         <span className="font-medium">Leeuwarden, the Netherlands</span>, while{" "}
         <span className="italic">crafting websites & web apps</span>. My core stack includes{" "}
         <span className="font-medium">React, Next.js, Tailwind, and TypeScript</span>. During my internship at Concept7, I’m{" "}
