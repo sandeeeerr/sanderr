@@ -6,6 +6,7 @@ import StraatMaatje from "@/public/StraatMaatje.png";
 import Ottiya from "@/public/Ottiya.png";
 import Untitledone from "@/public/Untitledone.png";
 import EcoMobi from "@/public/EcoMobi2.png";
+import Thijs from "@/public/Thijs.png";
 
 export const links = [
   {
@@ -88,13 +89,13 @@ export const projectsData = [
     Url: '#',
   },
   {
-    title: "StraatMaatje",
-    statusColor: "text-red-500",
+    title: "Portfolio Thijs",
+    statusColor: "text-green-500",
     description:
-      "Empowering homeless youth with a resource-finding app and AI chat support for immediate care, created for MEE lab.",
-    tags: ["Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
-    imageUrl: StraatMaatje,
-    Url: 'https://street-gpt.vercel.app/',
+      "A portfolio for Thijs, a motion designer – not rocket science, but fast and sleek. Powered by a custom Filament-based CMS setup.",
+    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament" ],
+    imageUrl: Thijs,
+    Url: 'https://thijsveldwisch.com',
   },
   {
     title: "UntitledOne",
@@ -114,15 +115,24 @@ export const projectsData = [
     imageUrl: Ottiya,
     Url: 'https://ottiya.itch.io/hangul-simple-consonants',
   },
-
+  {
+    title: "StraatMaatje",
+    statusColor: "text-red-500",
+    description:
+      "Empowering homeless youth with a resource-finding app and AI chat support for immediate care, created for MEE lab.",
+    tags: ["Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
+    imageUrl: StraatMaatje,
+    Url: 'https://street-gpt.vercel.app/',
+  },
 ] as const;
 
 export const skillsData = [
+  "Alpine.js",
+  "CLI",
   "CSS",
   "Database Management",
-  "Framer Motion",
+  "Filament",
   "Git",
-  "HTML",
   "JavaScript",
   "jQuery",
   "Laravel",
@@ -134,9 +144,10 @@ export const skillsData = [
   "React",
   "Ruby on Rails",
   "Sass",
+  "SSH",
   "Swift",
   "Tailwind",
   "TypeScript",
   "Webpack",
-  "Wordpress",
+  "WordPress",
 ] as const;
