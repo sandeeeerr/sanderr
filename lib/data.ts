@@ -1,6 +1,13 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
+import { TbBrandAlpineJs } from "react-icons/tb";
+import { FaTerminal, FaGitAlt, FaJs, FaLaravel, FaNodeJs, FaReact, FaSass, FaSwift, FaWordpress } from "react-icons/fa";
+import { FiDatabase } from "react-icons/fi";
+import { SiLivewire, SiNextdotjs, SiRubyonrails, SiTypescript, SiWebpack, SiTailwindcss } from "react-icons/si";
+import { TbBrandLaravel } from "react-icons/tb";
+import { DiJqueryLogo } from "react-icons/di";
+import { FaPhp } from "react-icons/fa6";
+import { TbBrandPrisma } from "react-icons/tb";
 import { LuGraduationCap } from "react-icons/lu";
 import StraatMaatje from "@/public/StraatMaatje.png";
 import Ottiya from "@/public/Ottiya.png";
@@ -127,27 +134,25 @@ export const projectsData = [
 ] as const;
 
 export const skillsData = [
-  "Alpine.js",
-  "CLI",
-  "CSS",
-  "Database Management",
-  "Filament",
-  "Git",
-  "JavaScript",
-  "jQuery",
-  "Laravel",
-  "Livewire",
-  "Next.js",
-  "Node.js",
-  "PHP",
-  "Prisma",
-  "React",
-  "Ruby on Rails",
-  "Sass",
-  "SSH",
-  "Swift",
-  "Tailwind",
-  "TypeScript",
-  "Webpack",
-  "WordPress",
+  { name: "Alpine.js", icon: TbBrandAlpineJs },
+  { name: "CLI", icon: FaTerminal },
+  { name: "Database Management", icon: FiDatabase },
+  { name: "Filament", icon: TbBrandLaravel },
+  { name: "Git", icon: FaGitAlt },
+  { name: "JavaScript", icon: FaJs },
+  { name: "jQuery", icon: DiJqueryLogo },
+  { name: "Laravel", icon: TbBrandLaravel },
+  { name: "Livewire", icon: SiLivewire },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "PHP", icon: FaPhp },
+  { name: "Prisma", icon: TbBrandPrisma },
+  { name: "React", icon: FaReact },
+  { name: "Ruby on Rails", icon: SiRubyonrails },
+  { name: "Sass", icon: FaSass },
+  { name: "Swift", icon: FaSwift },
+  { name: "Tailwind", icon: SiTailwindcss },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Webpack", icon: SiWebpack },
+  { name: "WordPress", icon: FaWordpress },
 ] as const;

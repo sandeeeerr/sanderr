@@ -77,21 +77,25 @@ export default function Skills() {
         })}
       </ul>
       <ul className="flex flex-wrap justify-center gap-2 text-gray-800 text-md">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className="px-5 py-2 borderBlack rounded-xl bg-white/10 text-white/80"
-            key={index}
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-            custom={index}
-          >
-            {skill}
-          </motion.li>
-        ))}
+      {skillsData.map(({ name, icon: Icon }, index) => (
+        <motion.li
+          className="px-5 py-2 borderBlack rounded-xl bg-white/10 text-white/80 flex items-center"
+          key={index}
+          variants={fadeInAnimationVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{
+            once: true,
+          }}
+          custom={index}
+        >
+          {/* Render het icoon */}
+          <Icon className="mr-2 text-[white/55]" />
+          {/* Render de naam van de skill */}
+          {name}
+        </motion.li>
+      ))}
+
       </ul>
     </section>
   );
