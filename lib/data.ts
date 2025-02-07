@@ -9,11 +9,12 @@ import { DiJqueryLogo } from "react-icons/di";
 import { FaPhp } from "react-icons/fa6";
 import { TbBrandPrisma } from "react-icons/tb";
 import { LuGraduationCap } from "react-icons/lu";
-import StraatMaatje from "@/public/StraatMaatje.png";
+import OnderhoudJe from "@/public/image.png";
 import Ottiya from "@/public/Ottiya.png";
 import Untitledone from "@/public/Untitledone.png";
 import EcoMobi from "@/public/EcoMobi2.png";
-import Thijs from "@/public/Thijs.png";
+import ThijsVeldwisch from "@/public/ThijsVeldwisch.png";
+import RobinDogger from "@/public/RobinDogger.png";
 
 export const links = [
   {
@@ -49,7 +50,7 @@ export const experiencesData = [
     description:
     "Working as a full-stack developer in the TALL stack, gaining experience in teamwork, Git workflows, and full-stack development.",
     icon: React.createElement(CgWorkAlt),
-    date: "2024 - present",
+    date: "2024 - 2025",
   },
   {
     title: "Bachelor, Communication and Multimedia",
@@ -87,8 +88,29 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "OnderhoudJe",
+    statusColor: "text-orange-500",
+    status: "Get ready for the launch - DJ Jean :)",
+    description:
+      "OnderhoudJe is a web app that allows users to easily track and manage maintenance activities. The beta version is on its way! 🚀",
+    tags: ["Next.js", "Supabase", "TypeScript", "Tailwind", "ShadCN"],
+    imageUrl: OnderhoudJe,
+    Url: "https://onderhoudje.nl",
+  },
+  {
+    title: "Portfolio Thijs",
+    statusColor: "text-green-500",
+    status: "Live and ready to go! 🚀",
+    description:
+      "A portfolio for Thijs, a motion designer – not rocket science, but fast and sleek. Powered by a custom Filament-based CMS setup.",
+    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament" ],
+    imageUrl: ThijsVeldwisch,
+    Url: 'https://thijsveldwisch.com',
+  },
+  {
     title: "EcoMobi",
     statusColor: "text-green-500",
+    status: "Completed – client project, no public demo available.",
     description:
       "During my internship at Concept7, I contributed to EcoMobi, a Hanze project supporting rural mobility transitions with data-driven tools.",
     tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Chart.js" ],
@@ -96,19 +118,21 @@ export const projectsData = [
     Url: '#',
   },
   {
-    title: "Portfolio Thijs",
+    title: "Portfolio Robin",
     statusColor: "text-green-500",
+    status: "Online and running smoothly! 🌍",
     description:
-      "A portfolio for Thijs, a motion designer – not rocket science, but fast and sleek. Powered by a custom Filament-based CMS setup.",
-    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament" ],
-    imageUrl: Thijs,
-    Url: 'https://thijsveldwisch.com',
+      "A portfolio for Robin, a designer – same concept as Thijs: fast, sleek, and easy to use.",
+    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament"],
+    imageUrl: RobinDogger,
+    Url: "https://robindogger.nl",
   },
   {
     title: "UntitledOne",
-    statusColor: "text-orange-500",
+    statusColor: "text-blue-500",
+    status: "Under development – currently in research & design phase.",
     description:
-      "UntitledOne is an Open-source project that empowers artist to create, collaborate, and navigate their musical journey.",
+      "An open-source music platform for collaboration and creation, currently in development for research & UX design as part of my graduation project.",
       tags: ["Next.js", "Prisma", "NextAuth", "TypeScript", "Tailwind" ],
     imageUrl: Untitledone,
     Url: 'https://untitledone.nl',
@@ -116,20 +140,12 @@ export const projectsData = [
   {
     title: "Alphabet PWA",
     statusColor: "text-green-500",
+    status: "Live – check it out! 🔥",
     description:
       "An interactive web app for learning the Korean alphabet through drawing, developed for Ottiya.",
     tags: ["CSS", "jQuery", "Webpack", "PWA"],
     imageUrl: Ottiya,
     Url: 'https://ottiya.itch.io/hangul-simple-consonants',
-  },
-  {
-    title: "StraatMaatje",
-    statusColor: "text-red-500",
-    description:
-      "Empowering homeless youth with a resource-finding app and AI chat support for immediate care, created for MEE lab.",
-    tags: ["Next.js", "Prisma", "NextAuth", "AI (chatGPT)" ],
-    imageUrl: StraatMaatje,
-    Url: 'https://street-gpt.vercel.app/',
   },
 ] as const;
 

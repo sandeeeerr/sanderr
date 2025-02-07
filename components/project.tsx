@@ -4,14 +4,16 @@ import { useRef } from "react";
 import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
-import {FaExternalLinkAlt} from "react-icons/fa"
-import { GoDotFill } from 'react-icons/go';
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
+import * as Tooltip from "@radix-ui/react-tooltip";
+
 type ProjectProps = (typeof projectsData)[number];
 
 export default function Project({
   title,
   statusColor,
+  status,
   description,
   tags,
   imageUrl,
@@ -35,14 +37,36 @@ export default function Project({
       className="mb-3 group sm:mb-8 last:mb-0"
     >
       <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] transition sm:group-even:pl-8 text-white bg-white/10 hover:bg-white/20">
-        <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[55%] flex flex-col h-full sm:group-even:ml-[18rem]">
+        <div className="pt-4 pb-3 md:pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[55%] flex flex-col h-full sm:group-even:ml-[18rem]">
           <div className="flex">
-            <div className="flex items-center justify-between">
-              <span className={`${statusColor} mr-1`}><GoDotFill /></span> 
-            </div>
-            <h3 className="text-2xl font-semibold">{title}</h3>
-            <a className="flex items-center mt-0.5 text-white/70 hover:text-white/95" href={Url} target="_blank"><FaExternalLinkAlt fontSize={16} className="inline mx-3" /></a>
+            {/* Tooltip wrapper */}
+            <Tooltip.Provider delayDuration={100}>
+              <Tooltip.Root>
+                <Tooltip.Trigger asChild>
+                <div className="flex justify-between items-center">
+                  <span className={`mr-1.5 cursor-pointer ${statusColor}`}>
+                    <GoDotFill />
+                  </span>
+                  <h3 className="text-2xl font-semibold">{title}</h3>
+                </div>
+                </Tooltip.Trigger>
+                <Tooltip.Portal>
+                  <Tooltip.Content
+                    side="top"
+                    align="center"
+                    sideOffset={5}
+                    className="px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg"
+                  >
+                    {status}
+                    <Tooltip.Arrow className="fill-gray-800" />
+                  </Tooltip.Content>
+                </Tooltip.Portal>
+              </Tooltip.Root>
+            </Tooltip.Provider>
 
+            <a className="flex items-center mt-0.5 text-white/70 hover:text-white/95" href={Url} target="_blank">
+              <FaExternalLinkAlt fontSize={16} className="inline mx-3" />
+            </a>
           </div>
           <p className="mt-2 leading-relaxed text-white/70">
             {description}
@@ -59,22 +83,35 @@ export default function Project({
           </ul>
         </div>
 
+        {/* Mobile image */}
+        <div className="relative mt-4 w-full h-48 sm:hidden">
+          <Image
+            src={imageUrl}
+            alt="Project I worked on"
+            quality={95}
+            className="object-cover object-top ml-5 rounded-t-lg shadow-lg"
+            fill
+          />
+        </div>
+
+        {/* Desktop image */}
         <Image
           src={imageUrl}
           alt="Project I worked on"
           quality={95}
           className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-        transition 
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
+          object-cover object-top
+          transition 
+          group-hover:scale-[1.04]
+          group-hover:-translate-x-3
+          group-hover:translate-y-3
+          group-hover:-rotate-2
 
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
+          group-even:group-hover:translate-x-3
+          group-even:group-hover:translate-y-3
+          group-even:group-hover:rotate-2
 
-        group-even:right-[initial] group-even:-left-40"
+          group-even:right-[initial] group-even:-left-40"
         />
       </section>
     </motion.div>

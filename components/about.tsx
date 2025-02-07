@@ -24,21 +24,21 @@ export default function About() {
   <span className="font-medium">Communication and Multimedia Design</span> in{" "}
         <span className="font-medium">Leeuwarden, the Netherlands</span>, while{" "}
         <span className="italic">crafting websites & web apps</span>. My core stack includes{" "}
-        <span className="font-medium">React, Next.js, Tailwind, and TypeScript</span>. During my internship at Concept7, I’m{" "}
-        <span className="underline">gaining valuable experience</span> with{" "}
-        <span className="font-medium">Laravel, Livewire, and Alpine.js</span>. I also{" "}
+        <span className="font-medium">React, Next.js, Tailwind, and TypeScript</span>. Through my recently completed internship at Concept7, I{" "}
+        <span className="underline">gained valuable experience</span> working with{" "}
+        <span className="font-medium">Laravel, Livewire, and Alpine.js</span> in a professional team environment. I also{" "}
         <span className="italic">enjoy using Motion</span> to add interactivity to projects.
       </p>
 
       <p className="mb-3">
         <span className="italic">Beyond code</span>, I immerse myself in{" "}
-        <span className="font-medium">DJ’ing</span> and producing{" "}
+        <span className="font-medium">DJ'ing</span> and producing{" "}
         <span className="underline">house & techno</span> beats.
       </p>
 
       <p>
-        Feel free to explore my portfolio and don’t hesitate to{" "}
-        <span className="italic">drop a message</span> if you’d like to{" "}
+        Feel free to explore my portfolio and don't hesitate to{" "}
+        <span className="italic">drop a message</span> if you'd like to{" "}
         <span className="font-medium">connect</span>,{" "}
         <span className="font-medium">collaborate</span>, or simply{" "}
         <span className="underline">chat about tech and tunes</span>!

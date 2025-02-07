@@ -24,7 +24,7 @@ export default function Intro() {
       id="home"
       className="mb-28 mt-0 md:mt-4 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
-      <div className="flex items-center justify-center">
+      <div className="flex justify-center items-center">
         <div className="relative">
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
@@ -57,11 +57,11 @@ export default function Intro() {
         <span className="font-bold">full-stack developer</span> creating{" "}
         <span className="font-bold"> innovative </span> 
         <span className="italic">web projects</span>. With a current focus on{" "}
-        <span className="underline">Laravel</span> <TbBrandLaravel className="inline " /> 
+        <span className="underline">Next.js</span> <TbBrandNextjs className="inline" /> 
       </motion.h1>
 
       <motion.div
-        className="flex flex-col items-center justify-center gap-4 px-2 md:px-4 text-lg font-medium sm:flex-row"
+        className="flex flex-col gap-4 justify-center items-center px-2 text-lg font-medium md:px-4 sm:flex-row"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -70,7 +70,7 @@ export default function Intro() {
       >
         <Link
           href="#contact"
-          className="flex items-center gap-2 py-3 text-white transition bg-gray-900 rounded-full outline-none group px-7 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105"
+          className="flex gap-2 items-center px-7 py-3 text-white bg-gray-900 rounded-full transition outline-none group focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
@@ -78,10 +78,10 @@ export default function Intro() {
           }}
         >
           Get in Touch!{" "}
-          <TbSend className="transition opacity-80 group-hover:translate-x-1" />
+          <TbSend className="opacity-80 transition group-hover:translate-x-1" />
         </Link>
 
-        <div className="flex flex-row items-center justify-center gap-2">
+        <div className="flex flex-row gap-2 justify-center items-center">
           <a
             className="p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack bg-white/10 text-white/60"
             href="https://www.linkedin.com/in/sander-de-vries-9587a017a/"
