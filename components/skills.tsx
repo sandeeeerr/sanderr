@@ -20,11 +20,11 @@ type Card = {
 };
 
 type WakatimeToday = {
-  data: {
-    grand_total: {
-      decimal: string;
-      digital: string;
-      total_seconds: number;
+  data?: {
+    grand_total?: {
+      decimal?: string;
+      digital?: string;
+      total_seconds?: number;
     };
   };
 };
@@ -52,7 +52,7 @@ export default function Skills() {
   useEffect(() => {
     const fetchTodayStats = async () => {
       try {
-        const response = await fetch("/api/wakatime/today");
+        const response = await fetch("/api/wakatime/today", { cache: "no-store" });
         if (!response.ok) throw new Error("Failed to fetch today stats");
         const data = await response.json();
         setTodayStats(data);
@@ -62,6 +62,9 @@ export default function Skills() {
     };
 
     fetchTodayStats();
+
+    const interval = setInterval(fetchTodayStats, 2 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const codingTime = wakatimeData?.seconds
@@ -71,8 +74,8 @@ export default function Skills() {
   : "No data";
 
 const todayTime = todayStats?.data?.grand_total?.total_seconds
-  ? `${Math.floor(todayStats.data.grand_total.total_seconds / 60 / 60)} hrs, ${
-      Math.floor(todayStats.data.grand_total.total_seconds / 60) % 60
+  ? `${Math.floor((todayStats.data.grand_total.total_seconds || 0) / 60 / 60)} hrs, ${
+      Math.floor((todayStats.data.grand_total.total_seconds || 0) / 60) % 60
     } min`
   : "No data";
 

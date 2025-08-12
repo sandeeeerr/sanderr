@@ -1,4 +1,8 @@
 import { NextResponse } from 'next/server';
+import { env } from '@/env'
+
+export const runtime = 'edge'
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
@@ -7,9 +11,11 @@ export async function GET() {
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
-            process.env.WAKATIME_API_KEY || ''
+            env.WAKATIME_API_KEY
           ).toString('base64')}`,
         },
+        cache: 'no-store',
+        next: { revalidate: 0 }
       }
     );
 
@@ -18,12 +24,20 @@ export async function GET() {
     }
 
     const data = await response.json();
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
+      }
+    });
   } catch (error) {
     console.error('Error fetching Wakatime today stats:', error);
     return NextResponse.json(
       { error: 'Failed to fetch Wakatime data' },
-      { status: 500 }
+      { status: 500,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
+        }
+      }
     );
   }
 } 

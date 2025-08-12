@@ -3,7 +3,7 @@ import { CgWorkAlt } from "react-icons/cg";
 import { TbBrandAlpineJs } from "react-icons/tb";
 import { FaTerminal, FaGitAlt, FaJs, FaLaravel, FaNodeJs, FaReact, FaSass, FaSwift, FaWordpress } from "react-icons/fa";
 import { FiDatabase } from "react-icons/fi";
-import { SiLivewire, SiNextdotjs, SiRubyonrails, SiTypescript, SiWebpack, SiTailwindcss } from "react-icons/si";
+import { SiLivewire, SiNextdotjs, SiRubyonrails, SiTypescript, SiWebpack, SiTailwindcss, SiRadixui } from "react-icons/si";
 import { TbBrandLaravel } from "react-icons/tb";
 import { DiJqueryLogo } from "react-icons/di";
 import { FaPhp } from "react-icons/fa6";
@@ -12,7 +12,7 @@ import { LuGraduationCap } from "react-icons/lu";
 import OnderhoudJe from "@/public/image.png";
 import Ottiya from "@/public/Ottiya.png";
 import Untitledone from "@/public/Untitledone.png";
-import EcoMobi from "@/public/EcoMobi2.png";
+import EcoMobi from "@/public/EcoMobi.png";
 import ThijsVeldwisch from "@/public/ThijsVeldwisch.png";
 import RobinDogger from "@/public/RobinDogger.png";
 
@@ -88,14 +88,14 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "OnderhoudJe",
+    title: "UntitledOne",
     statusColor: "text-orange-500",
-    status: "Get ready for the launch - DJ Jean :)",
+    status: "Under heavy construction – now turning research into real code. 🛠",
     description:
-      "OnderhoudJe is a web app that allows users to easily track and manage maintenance activities. The beta version is on its way! 🚀",
-    tags: ["Next.js", "Supabase", "TypeScript", "Tailwind", "ShadCN"],
-    imageUrl: OnderhoudJe,
-    Url: "https://onderhoudje.nl",
+      "Open-source platform for musicians, producers, and audio creatives to collaborate, share ideas, and give feedback – all in one place. Built as my graduation project, fueled by caffeine.",
+    tags: ["Next.js", "Supabase", "TypeScript", "Tailwind", "ShadCN/UI", "Lucide React"],
+    imageUrl: Untitledone,
+    Url: "https://untitledone.nl",
   },
   {
     title: "Portfolio Thijs",
@@ -106,6 +106,16 @@ export const projectsData = [
     tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament" ],
     imageUrl: ThijsVeldwisch,
     Url: 'https://thijsveldwisch.com',
+  },
+  {
+    title: "OnderhoudJe",
+    statusColor: "text-green-500",
+    status: "Get ready for the launch - DJ Jean :)",
+    description:
+      "OnderhoudJe is a web app that allows users to easily track and manage maintenance activities. The beta version is on its way! 🚀",
+    tags: ["Next.js", "Supabase", "TypeScript", "Tailwind", "ShadCN"],
+    imageUrl: OnderhoudJe,
+    Url: "https://onderhoudje.nl",
   },
   {
     title: "EcoMobi",
@@ -126,16 +136,6 @@ export const projectsData = [
     tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament"],
     imageUrl: RobinDogger,
     Url: "https://robindogger.nl",
-  },
-  {
-    title: "UntitledOne",
-    statusColor: "text-blue-500",
-    status: "Under development – currently in research & design phase.",
-    description:
-      "An open-source music platform for collaboration and creation, currently in development for research & UX design as part of my graduation project.",
-      tags: ["Next.js", "Prisma", "NextAuth", "TypeScript", "Tailwind" ],
-    imageUrl: Untitledone,
-    Url: 'https://untitledone.nl',
   },
   {
     title: "Alphabet PWA",
@@ -168,6 +168,7 @@ export const skillsData = [
   { name: "Sass", icon: FaSass },
   { name: "Swift", icon: FaSwift },
   { name: "Tailwind", icon: SiTailwindcss },
+  { name: "shadcn/ui", icon: SiRadixui },
   { name: "TypeScript", icon: SiTypescript },
   { name: "Webpack", icon: SiWebpack },
   { name: "WordPress", icon: FaWordpress },
