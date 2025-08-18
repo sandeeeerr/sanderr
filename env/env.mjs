@@ -7,12 +7,14 @@ export const env = createEnv({
   skipValidation: process.env.CI === 'true' || process.env.NODE_ENV === 'test',
   server: {
     WAKATIME_API_KEY: z.string().min(1),
+    ADMIN_PASSWORD: z.string().min(1),
   },
   client: {
 
   },
   runtimeEnv: {
     WAKATIME_API_KEY: process.env.WAKATIME_API_KEY,
+    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
   }
 })
 /* c8 ignore stop */

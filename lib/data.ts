@@ -30,16 +30,18 @@ export const links = [
     hash: "#projects",
   },
   {
+    name: "Blog",
+    // Use a path for the blog route instead of an in-page hash anchor
+    // Header component supports this optional field
+    path: "/blog",
+  },
+  {
     name: "Skills",
     hash: "#skills",
   },
   {
     name: "Experience",
     hash: "#experience",
-  },
-  {
-    name: "Contact",
-    hash: "#contact",
   },
 ] as const;
 
