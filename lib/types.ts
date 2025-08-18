@@ -1,3 +1,4 @@
 import { links } from "./data";
 
-export type SectionName = (typeof links)[number]["name"];
+// Allow sections that aren't in the header navigation (e.g., Contact)
+export type SectionName = (typeof links)[number]["name"] | "Contact";
