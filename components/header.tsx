@@ -24,7 +24,7 @@ export default function Header() {
           {links.map((link) => (
             <motion.li
               className="relative flex items-center justify-center h-3/4"
-              key={(link as any).hash ?? (link as any).path ?? link.name}
+              key={link.name}
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
             >
@@ -36,7 +36,7 @@ export default function Header() {
                       activeSection === link.name,
                   }
                 )}
-                href={(link as any).path ?? link.hash}
+                href={("path" in link ? (link as any).path : (link as any).hash) as string}
                 onClick={() => {
                   setActiveSection(link.name);
                   setTimeOfLastClick(Date.now());
