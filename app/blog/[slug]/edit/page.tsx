@@ -14,6 +14,7 @@ export default function EditPostPage() {
   const [published, setPublished] = useState(false)
   // guarded by cookie via middleware
   const [imageUrl, setImageUrl] = useState('')
+  const [deleting, setDeleting] = useState(false)
 
   const quillRef = useRef<any>(null)
   const quillModules = useMemo(() => ({
@@ -74,6 +75,25 @@ export default function EditPostPage() {
     router.push(`/blog/${updated.slug}`)
   }
 
+  const onDelete = async () => {
+    if (!id) return
+    if (!confirm('Weet je zeker dat je deze post wilt verwijderen? Dit kan niet ongedaan worden gemaakt.')) return
+    setDeleting(true)
+    try {
+      const res = await fetch('/api/posts', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      })
+      if (!res.ok) throw new Error('Delete failed')
+      router.push('/blog')
+    } catch (e) {
+      alert('Verwijderen mislukt')
+    } finally {
+      setDeleting(false)
+    }
+  }
+
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">
       <div className="mb-6 flex items-center justify-between">
@@ -107,6 +127,7 @@ export default function EditPostPage() {
           <div className="flex gap-3">
             <button onClick={onSave} className="rounded-full bg-gray-900 px-4 py-2 text-sm hover:bg-gray-950">Save</button>
             <button onClick={() => router.back()} className="rounded-full border border-gray-800 px-4 py-2 text-sm hover:bg-gray-900">Cancel</button>
+            <button onClick={onDelete} disabled={deleting} className="ml-auto rounded-full border border-red-900/60 bg-red-900/10 px-4 py-2 text-sm text-red-300 hover:bg-red-900/20 disabled:opacity-60">{deleting ? 'Deleting…' : 'Delete'}</button>
           </div>
         </div>
       )}
