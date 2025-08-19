@@ -61,9 +61,14 @@ export async function PUT(req: Request) {
   const { id, title, content, published } = await req.json()
   if (!id) return NextResponse.json({ message: 'id is required' }, { status: 400 })
 
+  const data: any = {}
+  if (typeof title !== 'undefined') data.title = title
+  if (typeof content !== 'undefined') data.content = content
+  if (typeof published !== 'undefined') data.published = !!published
+
   const updated = await prisma.post.update({
     where: { id: Number(id) },
-    data: { title, content, published: !!published },
+    data,
   })
   return NextResponse.json(updated)
 }

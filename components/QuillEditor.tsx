@@ -4,14 +4,16 @@ import React, { forwardRef } from 'react'
 import dynamic from 'next/dynamic'
 import 'react-quill/dist/quill.snow.css'
 
-const ReactQuillNoSSR = dynamic(() => import('react-quill'), { ssr: false }) as any
+// Use dynamic loader that returns a ref-forwarding component to avoid the
+// "Function components cannot be given refs" warning with Next dynamic.
+const QuillWithRef = dynamic({
+  ssr: false,
+  loader: async () => {
+    const { default: ReactQuill } = await import('react-quill')
+    return forwardRef<any, any>((props, ref) => <ReactQuill ref={ref} {...props} />)
+  },
+}) as any
 
-const QuillEditor = forwardRef<any, any>((props, ref) => {
-  return <ReactQuillNoSSR ref={ref} {...props} />
-})
-
-QuillEditor.displayName = 'QuillEditor'
-
-export default QuillEditor
+export default QuillWithRef
 
 
