@@ -21,11 +21,11 @@ export default function Header() {
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
 
-      <nav className="flex fixed top-[0.15rem] left-1/2 h-12 -translate-x-1/2 py-2 sm:top-[1.7rem] sm:h-[initial] sm:py-0">
+      <nav className="flex fixed top-[0.15rem] left-1/2 h-12 -translate-x-1/2 items-center py-2 sm:top-6 sm:h-[3.25rem] sm:py-0">
         <ul className="flex w-[24rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-400 sm:w-[initial] sm:flex-nowrap sm:gap-5">
           {links.map((link) => (
             <motion.li
-              className="relative flex items-center justify-center h-3/4"
+              className="relative flex items-center justify-center h-full"
               key={link.name}
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -37,7 +37,7 @@ export default function Header() {
                 return (
               <Link
                 className={clsx(
-                  "flex w-full items-center justify-center px-3 py-3 sm:px-2.5 sm:py-2.5 transition hover:text-gray-200",
+                  "flex h-full w-full items-center justify-center px-3 py-3 sm:px-3 sm:py-1 transition hover:text-gray-200",
                   {
                     "text-gray-200": isActive,
                   }

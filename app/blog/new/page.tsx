@@ -16,28 +16,15 @@ export default function NewPostPage() {
   const [adminPassword, setAdminPassword] = useState('')
   const [imageUrl, setImageUrl] = useState('')
 
-  const quillRef = useRef<any>(null)
   const quillModules = useMemo(() => ({
     toolbar: {
       container: [
         [{ header: [1, 2, 3, false] }],
         ['bold', 'italic', 'underline', 'strike'],
         [{ list: 'ordered' }, { list: 'bullet' }],
-        ['link', 'image'],
+        ['link'],
         ['clean'],
       ],
-      handlers: {
-        image: () => {
-          const url = typeof window !== 'undefined' ? window.prompt('Image URL') : ''
-          if (!url) return
-          const quill = quillRef.current?.getEditor?.()
-          if (!quill) return
-          const range = quill.getSelection(true)
-          const index = range ? range.index : quill.getLength()
-          quill.insertEmbed(index, 'image', url, 'user')
-          quill.setSelection(index + 1)
-        },
-      },
     },
   }), [])
 
@@ -102,7 +89,9 @@ export default function NewPostPage() {
         </div>
         <div>
           <label className="mb-1 block text-sm text-gray-300">Content</label>
-          <QuillEditor ref={quillRef} theme="snow" value={content} onChange={setContent} modules={quillModules} />
+          <div className="rounded-md border border-gray-800 bg-gray-900">
+            <QuillEditor theme="snow" value={content} onChange={setContent} modules={quillModules} />
+          </div>
         </div>
         <div>
           <label className="mb-1 block text-sm text-gray-300">Image URL (extern)</label>

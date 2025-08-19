@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import "./globals.css";
+import 'react-quill/dist/quill.snow.css'
 import { Inter } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
