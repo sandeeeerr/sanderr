@@ -7,14 +7,8 @@ import { SiLivewire, SiNextdotjs, SiRubyonrails, SiTypescript, SiWebpack, SiTail
 import { TbBrandLaravel } from "react-icons/tb";
 import { DiJqueryLogo } from "react-icons/di";
 import { FaPhp } from "react-icons/fa6";
-import { TbBrandPrisma } from "react-icons/tb";
 import { LuGraduationCap } from "react-icons/lu";
-import OnderhoudJe from "@/public/image.png";
-import Ottiya from "@/public/Ottiya.png";
-import Untitledone from "@/public/Untitledone.png";
-import EcoMobi from "@/public/EcoMobi.png";
-import ThijsVeldwisch from "@/public/ThijsVeldwisch.png";
-import RobinDogger from "@/public/RobinDogger.png";
+// remove unused project images - projects & skills now come from API
 
 export const links = [
   {
@@ -36,12 +30,6 @@ export const links = [
   {
     name: "Experience",
     hash: "#experience",
-  },
-  {
-    name: "Blog",
-    // Use a path for the blog route instead of an in-page hash anchor
-    // Header component supports this optional field
-    path: "/blog",
   },
 ] as const;
 
@@ -88,90 +76,6 @@ export const experiencesData = [
   },
 ] as const;
 
-export const projectsData = [
-  {
-    title: "UntitledOne",
-    statusColor: "text-orange-500",
-    status: "Under heavy construction – now turning research into real code. 🛠",
-    description:
-      "Open-source platform for musicians, producers, and audio creatives to collaborate, share ideas, and give feedback – all in one place. Built as my graduation project, fueled by caffeine.",
-    tags: ["Next.js", "Supabase", "TypeScript", "Tailwind", "ShadCN/UI", "Lucide React"],
-    imageUrl: Untitledone,
-    Url: "https://untitledone.nl",
-  },
-  {
-    title: "Portfolio Thijs",
-    statusColor: "text-green-500",
-    status: "Live and ready to go! 🚀",
-    description:
-      "A portfolio for Thijs, a motion designer – not rocket science, but fast and sleek. Powered by a custom Filament-based CMS setup.",
-    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament" ],
-    imageUrl: ThijsVeldwisch,
-    Url: 'https://thijsveldwisch.com',
-  },
-  {
-    title: "OnderhoudJe",
-    statusColor: "text-green-500",
-    status: "Get ready for the launch - DJ Jean :)",
-    description:
-      "OnderhoudJe is a web app that allows users to easily track and manage maintenance activities. The beta version is on its way! 🚀",
-    tags: ["Next.js", "Supabase", "TypeScript", "Tailwind", "ShadCN"],
-    imageUrl: OnderhoudJe,
-    Url: "https://onderhoudje.nl",
-  },
-  {
-    title: "EcoMobi",
-    statusColor: "text-green-500",
-    status: "Completed – client project, no public demo available.",
-    description:
-      "During my internship at Concept7, I contributed to EcoMobi, a Hanze project supporting rural mobility transitions with data-driven tools.",
-    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Chart.js" ],
-    imageUrl: EcoMobi,
-    Url: '#',
-  },
-  {
-    title: "Portfolio Robin",
-    statusColor: "text-green-500",
-    status: "Online and running smoothly! 🌍",
-    description:
-      "A portfolio for Robin, a designer – same concept as Thijs: fast, sleek, and easy to use.",
-    tags: ["Laravel", "Alpine.js", "Livewire", "Tailwind", "Filament"],
-    imageUrl: RobinDogger,
-    Url: "https://robindogger.nl",
-  },
-  {
-    title: "Alphabet PWA",
-    statusColor: "text-green-500",
-    status: "Live – check it out! 🔥",
-    description:
-      "An interactive web app for learning the Korean alphabet through drawing, developed for Ottiya.",
-    tags: ["CSS", "jQuery", "Webpack", "PWA"],
-    imageUrl: Ottiya,
-    Url: 'https://ottiya.itch.io/hangul-simple-consonants',
-  },
-] as const;
+// projectsData removed - data now fetched from API
 
-export const skillsData = [
-  { name: "Alpine.js", icon: TbBrandAlpineJs },
-  { name: "CLI", icon: FaTerminal },
-  { name: "Database Management", icon: FiDatabase },
-  { name: "Filament", icon: TbBrandLaravel },
-  { name: "Git", icon: FaGitAlt },
-  { name: "JavaScript", icon: FaJs },
-  { name: "jQuery", icon: DiJqueryLogo },
-  { name: "Laravel", icon: TbBrandLaravel },
-  { name: "Livewire", icon: SiLivewire },
-  { name: "Next.js", icon: SiNextdotjs },
-  { name: "Node.js", icon: FaNodeJs },
-  { name: "PHP", icon: FaPhp },
-  { name: "Prisma", icon: TbBrandPrisma },
-  { name: "React", icon: FaReact },
-  { name: "Ruby on Rails", icon: SiRubyonrails },
-  { name: "Sass", icon: FaSass },
-  { name: "Swift", icon: FaSwift },
-  { name: "Tailwind", icon: SiTailwindcss },
-  { name: "shadcn/ui", icon: SiRadixui },
-  { name: "TypeScript", icon: SiTypescript },
-  { name: "Webpack", icon: SiWebpack },
-  { name: "WordPress", icon: FaWordpress },
-] as const;
+// skillsData removed - data now fetched from API

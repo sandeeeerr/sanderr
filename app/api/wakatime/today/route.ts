@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { env } from '@/env'
 
-export const runtime = 'edge'
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
@@ -14,8 +13,7 @@ export async function GET() {
             env.WAKATIME_API_KEY
           ).toString('base64')}`,
         },
-        cache: 'no-store',
-        next: { revalidate: 0 }
+        cache: 'no-store'
       }
     );
 
@@ -24,7 +22,18 @@ export async function GET() {
     }
 
     const data = await response.json();
-    return NextResponse.json(data, {
+    // normalize to always include grand_total.total_seconds as a number
+    const totalSeconds = data?.data?.grand_total?.total_seconds
+    const normalized = {
+      data: {
+        grand_total: {
+          decimal: data?.data?.grand_total?.decimal ?? '0',
+          digital: data?.data?.grand_total?.digital ?? '0:00',
+          total_seconds: typeof totalSeconds === 'number' && !Number.isNaN(totalSeconds) ? totalSeconds : 0
+        }
+      }
+    }
+    return NextResponse.json(normalized, {
       headers: {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
       }

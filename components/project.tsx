@@ -1,14 +1,21 @@
 "use client";
 
 import { useRef } from "react";
-import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = {
+  title: string;
+  statusColor: string;
+  status: string;
+  description: string;
+  tags: string[];
+  imageUrl: string | null;
+  Url: string | null;
+};
 
 export default function Project({
   title,
@@ -64,9 +71,11 @@ export default function Project({
               </Tooltip.Root>
             </Tooltip.Provider>
 
-            <a className="flex items-center mt-0.5 text-white/70 hover:text-white/95" href={Url} target="_blank">
-              <FaExternalLinkAlt fontSize={16} className="inline mx-3" />
-            </a>
+            {Url && (
+              <a className="flex items-center mt-0.5 text-white/70 hover:text-white/95" href={Url} target="_blank" rel="noopener noreferrer">
+                <FaExternalLinkAlt fontSize={16} className="inline mx-3" />
+              </a>
+            )}
           </div>
           <p className="mt-2 leading-relaxed text-white/70">
             {description}
@@ -84,35 +93,41 @@ export default function Project({
         </div>
 
         {/* Mobile image */}
-        <div className="relative mt-4 w-full h-48 sm:hidden">
-          <Image
-            src={imageUrl}
-            alt="Project I worked on"
-            quality={95}
-            className="object-cover object-top ml-5 rounded-t-lg shadow-lg"
-            fill
-          />
-        </div>
+        {imageUrl && (
+          <div className="relative mt-4 w-full h-48 sm:hidden">
+            <Image
+              src={imageUrl}
+              alt={`${title} project screenshot`}
+              quality={95}
+              className="object-cover object-top ml-5 rounded-t-lg shadow-lg"
+              fill
+            />
+          </div>
+        )}
 
         {/* Desktop image */}
-        <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-          object-cover object-top
-          transition 
-          group-hover:scale-[1.04]
-          group-hover:-translate-x-3
-          group-hover:translate-y-3
-          group-hover:-rotate-2
+        {imageUrl && (
+          <Image
+            src={imageUrl}
+            alt={`${title} project screenshot`}
+            width={452}
+            height={300}
+            quality={95}
+            className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
+            object-cover object-top
+            transition 
+            group-hover:scale-[1.04]
+            group-hover:-translate-x-3
+            group-hover:translate-y-3
+            group-hover:-rotate-2
 
-          group-even:group-hover:translate-x-3
-          group-even:group-hover:translate-y-3
-          group-even:group-hover:rotate-2
+            group-even:group-hover:translate-x-3
+            group-even:group-hover:translate-y-3
+            group-even:group-hover:rotate-2
 
-          group-even:right-[initial] group-even:-left-40"
-        />
+            group-even:right-[initial] group-even:-left-40"
+          />
+        )}
       </section>
     </motion.div>
   );
