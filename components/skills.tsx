@@ -9,7 +9,7 @@ import fetcher from "@/lib/fetcher";
 import { GoDotFill } from "react-icons/go";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { type Wakatime, type Skill as SkillType } from "@/types/api";
-import { getIcon } from "@/lib/icon-map";
+import SkillIcon from "./SkillIcon";
 
 type SkillsProps = {
   skills: SkillType[];
@@ -157,25 +157,20 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
         })}
       </ul>
       <ul className="flex flex-wrap gap-2 justify-center text-gray-800 text-md">
-        {skills.map((skill, index) => {
-          const Icon = getIcon(skill.icon_name);
-          return (
-            <motion.li
-              className="flex items-center px-5 py-2 rounded-xl borderBlack bg-white/10 text-white/80"
-              key={skill.id}
-              variants={fadeInAnimationVariants}
-              initial="initial"
-              whileInView="animate"
-              viewport={{
-                once: true,
-              }}
-              custom={index}
-            >
-              <Icon className="mr-2 text-[white/55]" />
-              {skill.name}
-            </motion.li>
-          );
-        })}
+        {skills.map((skill, index) => (
+          <motion.li
+            className="flex items-center px-5 py-2 rounded-xl borderBlack bg-white/10 text-white/80"
+            key={skill.id}
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            custom={index}
+          >
+            <SkillIcon iconName={skill.icon_name} className="mr-2 text-[white/55]" />
+            {skill.name}
+          </motion.li>
+        ))}
       </ul>
     </section>
   );
