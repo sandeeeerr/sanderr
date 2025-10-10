@@ -27,6 +27,7 @@ export default function Project({
   Url,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
+  
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"],
@@ -43,7 +44,7 @@ export default function Project({
       }}
       className="mb-3 group sm:mb-8 last:mb-0"
     >
-      <section className="max-w-[42rem] border border-black/5 rounded-2xl overflow-hidden sm:pr-8 relative sm:h-[20rem] transition sm:group-even:pl-8 text-white bg-white/5 backdrop-blur-lg hover:bg-white/10">
+      <section className="w-full sm:max-w-[42rem] border border-black/5 rounded-2xl overflow-hidden sm:pr-8 relative sm:h-[20rem] transition sm:group-even:pl-8 text-white bg-white/5 backdrop-blur-lg hover:bg-white/10">
         <div className="pt-4 pb-3 md:pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[55%] flex flex-col h-full sm:group-even:ml-[18rem]">
           <div className="flex">
             {/* Tooltip wrapper */}
@@ -94,13 +95,13 @@ export default function Project({
 
         {/* Mobile image */}
         {imageUrl && (
-          <div className="relative mt-4 w-full h-48 sm:hidden">
+          <div className="relative mt-4 w-full h-48 px-5 sm:hidden">
             <Image
               src={imageUrl}
               alt={`${title} project screenshot`}
               quality={75}
               loading="lazy"
-              className="object-cover object-top ml-5 rounded-t-lg shadow-lg"
+              className="object-cover object-top rounded-t-lg shadow-lg"
               fill
             />
           </div>

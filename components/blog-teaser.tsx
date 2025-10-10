@@ -86,10 +86,11 @@ export default function BlogTeaser({ posts }: BlogTeaserProps) {
         ))}
       </div>
       <motion.div 
-        className="text-center mt-8"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
+        className="text-center mt-8 relative z-10"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2, duration: 0.6 }}
       >
         <Link href="/blog">
           <Button variant="glass" size="md" className="group">
