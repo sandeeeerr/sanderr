@@ -1,10 +1,9 @@
 import About from "@/components/about";
-import Experience from "@/components/experience";
 import Intro from "@/components/intro";
 import Projects from "@/components/projects";
 import SectionDivider from "@/components/section-divider";
 import Skills from "@/components/skills";
-import BlogTeaser from "@/components/blog-teaser";
+import dynamic from "next/dynamic";
 import { getProjects, getSkills, getBlogPostsPaginated } from "@/lib/api";
 
 export default async function Home() {
@@ -21,8 +20,27 @@ export default async function Home() {
       <About />
       <Projects projects={projects} />
       <Skills skills={skills} />
-      <Experience />
-      <BlogTeaser posts={blogData.data} />
+      {/**
+       * Lazy-load the Experience section (heavy dependency: react-vertical-timeline-component)
+       * to reduce First Load JS on the home route. Client-only render with SSR disabled.
+       */}
+      {(() => {
+        const ExperienceLazy = dynamic(() => import("@/components/experience"), {
+          ssr: false,
+          loading: () => <div className="h-40 w-full" />,
+        });
+        return <ExperienceLazy />;
+      })()}
+      {/**
+       * Lazy-load BlogTeaser (below the fold) to reduce initial bundle
+       */}
+      {(() => {
+        const BlogTeaserLazy = dynamic(() => import("@/components/blog-teaser"), {
+          ssr: false,
+          loading: () => <div className="h-40 w-full" />,
+        });
+        return <BlogTeaserLazy posts={blogData.data} />;
+      })()}
     </main>
   );
 }

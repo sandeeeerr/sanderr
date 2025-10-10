@@ -5,6 +5,7 @@ import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 import dynamic from "next/dynamic";
+// ClientLayout removed in favor of native app/loading.tsx fallback
 
 // Lazy load MovingBackground to reduce initial bundle
 const MovingBackground = dynamic(() => import("@/components/GradientBackground"), {
