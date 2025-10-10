@@ -58,3 +58,33 @@ export type BlogPost = {
   published_at: string
   is_published: boolean
 }
+
+export type BlogListItem = {
+  id: string
+  title: string
+  slug: string
+  excerpt: string | null
+  cover_image_url: string | null
+  tags: string[] | null
+  category: string | null
+  published_at: string | null
+}
+
+export type BlogPostDetail = BlogListItem & {
+  content_html: string
+  seo?: {
+    metaTitle?: string
+    metaDescription?: string
+    ogImage?: string | null
+  }
+}
+
+export type BlogListResponse = {
+  data: BlogListItem[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+  }
+}

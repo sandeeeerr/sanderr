@@ -15,21 +15,24 @@ export default function Experience() {
 
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 md:mb-10 mb-16 ">
+    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
       <SectionHeading>My experience</SectionHeading>
       <VerticalTimeline lineColor="">
         {experiencesData.map((item, index) => (
           <React.Fragment key={index}>
             <VerticalTimelineElement
               contentStyle={{
-                background: "#222224",
+                background: "rgba(255, 255, 255, 0.05)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
                 boxShadow: "none",
-                border: "#222224",
+                border: "0px solid rgba(255, 255, 255, 0.05)",
+                borderRadius: "1rem",
                 textAlign: "left",
                 padding: "1.3rem 2rem",
               }}
               contentArrowStyle={{
-                borderRight: "0.4rem solid rgba(255, 255, 255, 0.5)",
+                borderRight: "0.4rem solid rgba(255, 255, 255, 0.05)",
               }}
               date={item.date}
               icon={item.icon}

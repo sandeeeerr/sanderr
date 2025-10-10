@@ -36,13 +36,14 @@ type WakatimeToday = {
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
-    y: 100,
+    y: 50,
   },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.05 * index,
+      delay: 0.02 * index, // Reduced delay for faster animation
+      duration: 0.3,
     },
   }),
 };
@@ -67,7 +68,8 @@ export default function Skills({ skills }: SkillsProps) {
 
     fetchTodayStats();
 
-    const interval = setInterval(fetchTodayStats, 2 * 60 * 1000);
+    // Increased interval to 5 minutes to reduce API calls
+    const interval = setInterval(fetchTodayStats, 5 * 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -114,7 +116,7 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
 
           return (
             <motion.li
-              className="py-2 pr-5 pl-4 rounded-xl borderBlack bg-white/10 text-white/80"
+              className="py-2 pr-5 pl-4 rounded-2xl borderBlack  bg-white/5 backdrop-blur-lg hover:bg-white/10 text-white/80"
               key={title}
               variants={fadeInAnimationVariants}
               initial="initial"
@@ -159,7 +161,7 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
       <ul className="flex flex-wrap gap-2 justify-center text-gray-800 text-md">
         {skills.map((skill, index) => (
           <motion.li
-            className="flex items-center px-5 py-2 rounded-xl borderBlack bg-white/10 text-white/80"
+            className="flex items-center px-5 py-2 rounded-2xl borderBlack  bg-white/5 backdrop-blur-lg hover:bg-white/10 text-white/80"
             key={skill.id}
             variants={fadeInAnimationVariants}
             initial="initial"

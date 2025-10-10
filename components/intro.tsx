@@ -12,6 +12,8 @@ import { BsSend } from "react-icons/bs";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { useMeasure } from "react-use";
+import { Button } from "@/components/ui/button";
+import { IconButton } from "@/components/ui/icon-button";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -22,16 +24,16 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 mt-0 md:mt-4 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-0"
     >
       <div className="flex justify-center items-center">
         <div className="relative">
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               type: "tween",
-              duration: 0.2,
+              duration: 0.15,
             }}
           >
             <Image
@@ -39,7 +41,7 @@ export default function Intro() {
               alt="Sander"
               width="300"
               height="300"
-              quality="95"
+              quality="80"
               priority={true}
               className="h-32 w-32 md:h-40 md:w-40 rounded-full object-cover border-[0.30rem] border-white/10 shadow-xl"
             />
@@ -49,9 +51,10 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-10 md:mb-14 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl mt-8"
-        initial={{ opacity: 0, y: 100 }}
+        className="mb-10 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl mt-8"
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
       >
         <span className="font-bold">Hello, I'm Sander.</span> I'm a junior {" "}
         <span className="font-bold">full-stack developer</span> creating{" "}
@@ -62,41 +65,45 @@ export default function Intro() {
 
       <motion.div
         className="flex flex-col gap-4 justify-center items-center px-2 text-lg font-medium md:px-4 sm:flex-row"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.1,
+          delay: 0.05,
+          duration: 0.3,
         }}
       >
-        <Link
-          href="#contact"
-          className="flex gap-2 items-center px-7 py-3 text-white bg-gray-900 rounded-full transition outline-none group focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105"
+        <Button
+          className="gap-2 rounded-full group"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
-            window.location.href='mailto:sandervries@me.com?subject=Contact%20sanderr.site';
+            window.location.href = 'mailto:sandervries@me.com?subject=Contact%20sanderr.site';
           }}
         >
           Get in Touch!{" "}
           <TbSend className="opacity-80 transition group-hover:translate-x-1" />
-        </Link>
+        </Button>
 
-        <div className="flex flex-row gap-2 justify-center items-center">
-          <a
-            className="p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack bg-white/10 text-white/60"
+        <div className="flex flex-row gap-3 justify-center items-center">
+          <IconButton
             href="https://www.linkedin.com/in/sander-de-vries-9587a017a/"
             target="_blank"
+            rel="noopener noreferrer"
+            ariaLabel="Open LinkedIn"
+            size="md"
           >
             <BsLinkedin />
-          </a>
+          </IconButton>
 
-          <a
-            className="p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack bg-white/10 text-white/60"
+          <IconButton
             href="https://github.com/sandeeeerr"
             target="_blank"
+            rel="noopener noreferrer"
+            ariaLabel="Open GitHub"
+            size="md"
           >
             <FaGithubSquare />
-          </a>
+          </IconButton>
         </div>
 
       </motion.div>

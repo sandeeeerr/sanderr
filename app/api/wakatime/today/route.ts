@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { env } from '@/env'
 
-export const dynamic = 'force-dynamic'
+// Cache for 5 minutes to speed up WakaTime API
+export const revalidate = 300
 
 export async function GET() {
   try {
@@ -13,7 +14,7 @@ export async function GET() {
             env.WAKATIME_API_KEY
           ).toString('base64')}`,
         },
-        cache: 'no-store'
+        next: { revalidate: 300 } // Cache for 5 minutes
       }
     );
 
@@ -35,7 +36,7 @@ export async function GET() {
     }
     return NextResponse.json(normalized, {
       headers: {
-        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600'
       }
     });
   } catch (error) {
@@ -44,7 +45,7 @@ export async function GET() {
       { error: 'Failed to fetch Wakatime data' },
       { status: 500,
         headers: {
-          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120'
         }
       }
     );

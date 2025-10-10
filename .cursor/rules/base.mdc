@@ -1,0 +1,148 @@
+---
+alwaysApply: true
+---
+
+---
+alwaysApply: true
+---
+
+# Modern Web App Boilerplate (Next.js + Supabase + Shadcn/UI)
+
+A production‑ready starter for building web apps with **Next.js 15**, **Supabase**, **Tailwind CSS 4**, and **Shadcn/UI**.  
+It focuses on clear structure, reusability, and long‑term maintainability. Works well for SaaS, dashboards, admin tools, and content sites.
+
+---
+
+## Project Structure
+
+This template uses a modular, atomic component architecture. Adapt freely per project.
+
+```
+src/
+├── app/                                # Next.js App Router routes, actions, and APIs
+│   ├── (auth)/                         # Optional: authentication routes
+│   ├── actions/                        # Server actions
+│   └── api/                            # Route handlers
+│
+├── components/                         # Reusable UI
+│   ├── ui/                             # Base Shadcn components (atoms)
+│   ├── atoms/                          # Small custom building blocks
+│   ├── molecules/                      # Compositions of atoms
+│   ├── organisms/                      # Complex reusable sections (nav, header)
+│   ├── layouts/                        # Page shells and grids
+│   ├── templates/                      # Page‑level reusable sections
+│   ├── styles/                         # Shared CSS (e.g., theme-customizer.css)
+│   └── tests/                          # Component tests if not colocated
+│
+├── contexts/                           # React context providers (e.g., theme, user)
+├── hooks/                              # Custom hooks (e.g., use-auth, use-theme)
+├── lib/                                # Core logic and utilities
+│   ├── supabase/                       # Supabase client and helpers
+│   │   ├── client.ts
+│   │   └── types.ts
+│   ├── api/                            # Fetching helpers (REST, RPC)
+│   ├── utils/                          # Generic helpers (format, cn, etc.)
+│   ├── env.ts                          # Environment variable loader
+│   ├── constants.ts
+│   └── types.ts                        # Global types
+│
+├── supabase/                           # Local migrations, policies, seed data
+│   ├── migrations/
+│   ├── policies/
+│   └── seed.sql
+│
+└── tests/                              # Jest integration or E2E setup
+    ├── e2e/
+    ├── integration/
+    └── setup.ts
+```
+
+Notes
+- Keep pure Shadcn components under `components/ui`. When you compose them, place the result in `atoms` / `molecules` / `organisms` as appropriate.
+- If a component is used by a single route only, co‑locate it in that route’s `(segment)/_components` folder if you prefer.
+- Co‑locate `*.test.tsx` with the component or place them in `components/tests` based on team preference.
+
+---
+
+## Design Principles
+
+- **Composition first**: atoms → molecules → organisms → layouts → templates.
+- **DRY**: move shared logic into `hooks` and `lib/utils` early.
+- **Single source of truth**: centralize env config in `lib/env.ts` and shared constants in `lib/constants.ts`.
+- **Type safety**: prefer generated or shared types in `lib/supabase/types.ts` and `lib/types.ts`.
+- **Styling discipline**: Tailwind utilities for most styling; use `class-variance-authority`, `tailwind-merge`, and `clsx` for variants and safe merges.
+- **Dark mode**: manage theme with `next-themes` and expose a `ThemeProvider` + `ModeToggle` atom.
+- **Accessibility**: leverage Radix primitives via Shadcn and test interactive pieces with RTL + JSDOM.
+
+---
+
+## Tech Stack
+
+| Layer | Library | Purpose |
+| --- | --- | --- |
+| Framework | **Next.js 15** | App Router, server actions, route handlers |
+| UI System | **Shadcn/UI**, **Radix UI**, **Tailwind CSS 4** | Accessible, composable components |
+| Icons | **lucide-react** / **react-icons** | Icon sets |
+| State & Forms | **React 19**, **react-hook-form** (optional), **Zod** (optional) | Form control and validation |
+| Data | **Supabase JS v2**, **@supabase/ssr** | DB, auth, storage, SSR helpers |
+| Tables & Drag | **@tanstack/react-table**, **dnd-kit** | Data grids and drag‑and‑drop |
+| Utils | **date-fns**, **clsx**, **tailwind-merge**, **class-variance-authority** | Formatting and styling helpers |
+| Media | **react-dropzone** | File input UX |
+| Motion | **motion** | Animations |
+| Testing | **Jest**, **@testing-library/react**, **jest-dom** | Unit and component tests |
+
+> Optional libs like React Hook Form and Zod are not in `package.json` by default; add them when needed.
+
+---
+
+## Scripts
+
+These commands reflect the provided `package.json`.
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start dev server with Turbopack |
+| `npm run build` | Build with Turbopack |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run seed` | Run all seed scripts |
+| `npm run seed:projects` | Seed projects data |
+| `npm run seed:skills` | Seed skills data |
+| `npm run test` | Run Jest tests |
+
+---
+
+## Supabase Types
+
+- Generate types for your database and place them in `src/lib/supabase/types.ts`.  
+- Avoid hand‑editing generated types. Re‑generate whenever the schema changes.
+
+Example (local dev):
+```bash
+supabase gen types typescript --project-id <project-id> > src/lib/supabase/types.ts
+```
+
+---
+
+## Recommended Conventions
+
+- **File names**: `kebab-case` for files and folders, `PascalCase` for React components.
+- **Imports**: use absolute imports via `tsconfig.json` paths (e.g., `@/components/...`).
+- **Testing**: colocate `*.test.ts(x)` with components or mirror structure under `/tests`.
+- **Accessibility**: add `aria-*` attributes and keyboard interactions for custom components.
+
+---
+
+## Getting Started
+
+1. Install dependencies
+   ```bash
+   npm i
+   ```
+2. Configure environment variables in `.env.local` (Supabase URL and anon key at minimum).
+3. Run the app
+   ```bash
+   npm run dev
+   ```
+
+You now have a clean base to build from. Extend routes under `src/app`, add UI in `src/components`, and expand your Supabase schema as needed.

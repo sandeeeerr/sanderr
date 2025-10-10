@@ -1,17 +1,17 @@
 import About from "@/components/about";
-import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Intro from "@/components/intro";
 import Projects from "@/components/projects";
 import SectionDivider from "@/components/section-divider";
 import Skills from "@/components/skills";
-import Test from "@/components/test";
-import { getProjects, getSkills } from "@/lib/api";
+import BlogTeaser from "@/components/blog-teaser";
+import { getProjects, getSkills, getBlogPostsPaginated } from "@/lib/api";
 
 export default async function Home() {
-  const [projects, skills] = await Promise.all([
+  const [projects, skills, blogData] = await Promise.all([
     getProjects(),
-    getSkills()
+    getSkills(),
+    getBlogPostsPaginated(1)
   ]);
 
   return (
@@ -19,10 +19,10 @@ export default async function Home() {
       <Intro />
       <SectionDivider />
       <About />
-      {/* <Test /> */}
       <Projects projects={projects} />
       <Skills skills={skills} />
       <Experience />
+      <BlogTeaser posts={blogData.data} />
     </main>
   );
 }

@@ -4,17 +4,21 @@ import React from "react";
 import { motion } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
-    <header className="z-[11] relative">
+    <header id="home" className="z-[11] relative">
       <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-opacity-40 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full bg-gray-950 border-black/40 bg-opacity-75"
+        // Opmerking: sm:w-[34.5rem] werkt niet omdat Tailwind standaard alleen stap-grootten zoals [rem], [px], [vw], [%] ondersteunt die in de safelist of config staan. Door het decimaalpunt wordt sm:w-[34.5rem] overgeslagen, tenzij je deze waarde toevoegt aan je tailwind.config.js onder 'theme.extend.width'. Gebruik bij voorkeur een afgeronde waarde zoals sm:w-[35rem], of voeg 'w-[34.5rem]' als safelist toe in Tailwind config voor ondersteuning.
+        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-opacity-40 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-34.5 sm:rounded-full bg-gray-950 border-black/40 bg-opacity-75"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
@@ -32,26 +36,34 @@ export default function Header() {
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
               >
-                <Link
+                <a
                   className={clsx(
                     "flex w-full items-center justify-center px-3 py-3 transition hover:text-gray-300",
                     {
-                      "text-gray-300":
-                        activeSection === link.name,
+                      "text-gray-300": 
+                        (link.name === "Blog" && pathname.startsWith("/blog")) ||
+                        (activeSection === link.name && !pathname.startsWith("/blog")),
                     }
                   )}
                   href={href}
-                  onClick={() => {
+                  onClick={(e) => {
+                    // If we're on a non-home page and the link is a hash link, route to home first
+                    const isHash = typeof href === "string" && href.startsWith("#");
+                    if (isHash && pathname !== "/") {
+                      e.preventDefault();
+                      router.push("/" + href);
+                    }
                     setActiveSection(link.name);
                     setTimeOfLastClick(Date.now());
                   }}
                 >
                   {link.name}
 
-                  {link.name === activeSection && (
+                  {((link.name === "Blog" && pathname.startsWith("/blog")) ||
+                    (link.name === activeSection && !pathname.startsWith("/blog"))) && (
                     <motion.span
                       className="absolute inset-0 bg-gray-800 rounded-full -z-10"
-                      layoutId="activeSection"
+                      layoutId={pathname === "/" ? "activeSection" : undefined}
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -59,7 +71,7 @@ export default function Header() {
                       }}
                     ></motion.span>
                   )}
-                </Link>
+                </a>
               </motion.li>
             );
           })}

@@ -33,3 +33,19 @@ export const slugify = (value: string): string => {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 };
+
+export const formatDate = (dateString: string | null): string => {
+  if (!dateString) return "";
+  
+  try {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("nl-NL", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }).format(date);
+  } catch (error) {
+    console.error("Error formatting date:", error);
+    return "";
+  }
+};

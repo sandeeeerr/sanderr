@@ -6,20 +6,17 @@ import { motion } from 'framer-motion';
 
 const MovingBackground = () => {
 
+  // Simplified animations for better performance
   const animate1 = {
-    scale: [1, 1.05, 0.95],
-    x: [0, 30, 60, 70, 60, 30],
-    y: [0, 10, 30, 20, 0, 0],
-    rotate: [360, 350, 340, 350, 350, 360],
-    borderRadius: ["100%", "80%", "100%", "60%", "100%"],
+    scale: [1, 1.05, 1],
+    x: [0, 30, 0],
+    y: [0, 20, 0],
     opacity: 1,
   };
   const animate2 = {
-    scale: [0.95, 1, 1.05 ],
-    x: [20, -20, 0, 20, 40, 0],
-    y: [0, 20, 10, 10, 20, 0],
-    rotate: [350, 360, 350, 350, 340, 360],
-    borderRadius: ["80%", "100%", "80%", "100%", "60%"],
+    scale: [1, 1.05, 1],
+    x: [0, -30, 0],
+    y: [0, -20, 0],
     opacity: 1,
   };
 
@@ -56,9 +53,10 @@ const MovingBackground = () => {
         animate={animate1}
         transition={{
           default: {
-            duration: 6,
-            repeatType: "reverse",
+            duration: 10,
+            ease: "easeInOut",
             repeat: Infinity,
+            repeatType: "reverse",
           },
         }}
       ></motion.div>
@@ -84,9 +82,10 @@ const MovingBackground = () => {
         animate={animate2}
         transition={{
           default: {
-            duration: 6,
-            repeatType: "reverse",
+            duration: 10,
+            ease: "easeInOut",
             repeat: Infinity,
+            repeatType: "reverse",
           },
         }}
       ></motion.div>

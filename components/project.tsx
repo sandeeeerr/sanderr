@@ -43,7 +43,7 @@ export default function Project({
       }}
       className="mb-3 group sm:mb-8 last:mb-0"
     >
-      <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] transition sm:group-even:pl-8 text-white bg-white/10 hover:bg-white/20">
+      <section className="max-w-[42rem] border border-black/5 rounded-2xl overflow-hidden sm:pr-8 relative sm:h-[20rem] transition sm:group-even:pl-8 text-white bg-white/5 backdrop-blur-lg hover:bg-white/10">
         <div className="pt-4 pb-3 md:pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[55%] flex flex-col h-full sm:group-even:ml-[18rem]">
           <div className="flex">
             {/* Tooltip wrapper */}
@@ -98,7 +98,8 @@ export default function Project({
             <Image
               src={imageUrl}
               alt={`${title} project screenshot`}
-              quality={95}
+              quality={75}
+              loading="lazy"
               className="object-cover object-top ml-5 rounded-t-lg shadow-lg"
               fill
             />
@@ -112,7 +113,8 @@ export default function Project({
             alt={`${title} project screenshot`}
             width={452}
             height={300}
-            quality={95}
+            quality={75}
+            loading="lazy"
             className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
             object-cover object-top
             transition 
