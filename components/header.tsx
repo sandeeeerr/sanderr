@@ -17,8 +17,7 @@ export default function Header() {
   return (
     <header id="home" className="z-[11] relative">
       <motion.div
-        // Opmerking: sm:w-[34.5rem] werkt niet omdat Tailwind standaard alleen stap-grootten zoals [rem], [px], [vw], [%] ondersteunt die in de safelist of config staan. Door het decimaalpunt wordt sm:w-[34.5rem] overgeslagen, tenzij je deze waarde toevoegt aan je tailwind.config.js onder 'theme.extend.width'. Gebruik bij voorkeur een afgeronde waarde zoals sm:w-[35rem], of voeg 'w-[34.5rem]' als safelist toe in Tailwind config voor ondersteuning.
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-opacity-40 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-34.5 sm:rounded-full bg-gray-950 border-black/40 bg-opacity-75"
+        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-opacity-40 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full bg-gray-950 border-black/40 bg-opacity-75"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>

@@ -6,7 +6,7 @@ type TagBadgeProps = {
 
 export default function TagBadge({ tag }: TagBadgeProps) {
   return (
-    <span className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider rounded-full text-white/70">
+    <span className="bg-white/10 backdrop-blur-lg px-3 py-1 text-[0.7rem] uppercase tracking-wider rounded-full text-white/80">
       {tag}
     </span>
   );

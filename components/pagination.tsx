@@ -38,7 +38,7 @@ export default function Pagination({
         <Link
           key={i}
           href={buildUrl(i)}
-          className={`px-4 py-2 rounded-lg transition ${
+          className={`px-4 py-2 rounded-full transition ${
             i === currentPage
               ? "bg-white/20 text-white font-semibold"
               : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white/90"
@@ -61,14 +61,14 @@ export default function Pagination({
       {currentPage > 1 ? (
         <Link
           href={buildUrl(currentPage - 1)}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white/70 hover:bg-white/10 hover:text-white/90 transition"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white/90 transition"
           aria-label="Previous page"
         >
           <FaChevronLeft className="text-sm" />
           <span className="hidden sm:inline">Previous</span>
         </Link>
       ) : (
-        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white/30 cursor-not-allowed">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-white/30 cursor-not-allowed">
           <FaChevronLeft className="text-sm" />
           <span className="hidden sm:inline">Previous</span>
         </div>
@@ -78,7 +78,7 @@ export default function Pagination({
       <div className="hidden sm:flex gap-2">{renderPageNumbers()}</div>
 
       {/* Mobile current page indicator */}
-      <div className="sm:hidden px-4 py-2 rounded-lg bg-white/20 text-white font-semibold">
+      <div className="sm:hidden px-4 py-2 rounded-full bg-white/20 text-white font-semibold">
         {currentPage} / {totalPages}
       </div>
 
@@ -86,14 +86,14 @@ export default function Pagination({
       {currentPage < totalPages ? (
         <Link
           href={buildUrl(currentPage + 1)}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white/70 hover:bg-white/10 hover:text-white/90 transition"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white/90 transition"
           aria-label="Next page"
         >
           <span className="hidden sm:inline">Next</span>
           <FaChevronRight className="text-sm" />
         </Link>
       ) : (
-        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white/30 cursor-not-allowed">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-white/30 cursor-not-allowed">
           <span className="hidden sm:inline">Next</span>
           <FaChevronRight className="text-sm" />
         </div>

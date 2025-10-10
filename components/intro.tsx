@@ -1,19 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { BsArrowRight, BsLinkedin } from "react-icons/bs";
-import { HiDownload } from "react-icons/hi";
-import { FaGithubSquare, } from "react-icons/fa";
-import { TbBrandNextjs, TbBrandLaravel, TbSend } from "react-icons/tb";
-import { BsSend } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
+import { FaGithubSquare } from "react-icons/fa";
+import { TbBrandNextjs, TbSend } from "react-icons/tb";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import { useMeasure } from "react-use";
-import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
+import { Button } from "@/components/ui/button";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -73,7 +69,9 @@ export default function Intro() {
         }}
       >
         <Button
-          className="gap-2 rounded-full group"
+          variant="glass"
+          size="md"
+          className="group"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());

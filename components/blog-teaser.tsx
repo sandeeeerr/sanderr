@@ -78,7 +78,7 @@ export default function BlogTeaser({ posts }: BlogTeaserProps) {
 
               <div className="mt-auto pt-2">
                 <Link href={`/blog/${post.slug}`}>
-                  <Button size="sm" className="rounded-full">Read more</Button>
+                  <Button variant="glass" size="sm">Read more</Button>
                 </Link>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function BlogTeaser({ posts }: BlogTeaserProps) {
         transition={{ delay: 0.2 }}
       >
         <Link href="/blog">
-          <Button size="md" className="rounded-full gap-2 group">
+          <Button variant="glass" size="md" className="group">
             View all posts
             <FaChevronRight className="opacity-80 transition group-hover:translate-x-1" />
           </Button>

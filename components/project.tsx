@@ -62,7 +62,7 @@ export default function Project({
                     side="top"
                     align="center"
                     sideOffset={5}
-                    className="px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg"
+                    className="px-2 py-1 text-xs text-white bg-white/10 backdrop-blur-lg rounded-lg shadow-lg"
                   >
                     {status}
                     <Tooltip.Arrow className="fill-gray-800" />
@@ -83,7 +83,7 @@ export default function Project({
           <ul className="flex flex-wrap gap-2 mt-4 sm:mt-auto">
             {tags.map((tag, index) => (
               <li
-                className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider rounded-full text-white/70"
+                className="bg-white/10 backdrop-blur-lg px-3 py-1 text-[0.7rem] uppercase tracking-wider rounded-full text-white/80"
                 key={index}
               >
                 {tag}

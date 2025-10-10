@@ -146,7 +146,7 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
                       side="top"
                       align="center"
                       sideOffset={5}
-                      className="px-2 py-1 text-xs text-white bg-gray-800 rounded-md shadow-lg"
+                      className="px-2 py-1 text-xs text-white bg-white/10 backdrop-blur-lg rounded-lg shadow-lg"
                     >
                       {tooltip}
                       <Tooltip.Arrow className="fill-gray-800" />

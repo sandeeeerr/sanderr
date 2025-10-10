@@ -4,9 +4,11 @@ import BlogCard from "@/components/blog-card";
 import Pagination from "@/components/pagination";
 import { getBlogPostsPaginated } from "@/lib/api";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { FaChevronLeft } from "react-icons/fa6";
 
 type BlogPageProps = {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 };
 
 function BlogSkeleton() {
@@ -31,11 +33,11 @@ async function BlogList({ page }: { page: number }) {
         <p className="text-white/60 text-lg mb-4">
           No blog posts yet. Check back soon!
         </p>
-        <Link
-          href="/"
-          className="text-blue-400 hover:text-blue-300 transition underline"
-        >
-          ← Back to home
+        <Link href="/">
+          <Button variant="glass" size="sm" className="group">
+            <FaChevronLeft className="opacity-80 transition group-hover:-translate-x-1" />
+            Back to home
+          </Button>
         </Link>
       </div>
     );
@@ -45,11 +47,11 @@ async function BlogList({ page }: { page: number }) {
     return (
       <div className="text-center py-12">
         <p className="text-white/60 text-lg mb-4">No posts found on this page.</p>
-        <Link
-          href="/blog"
-          className="text-blue-400 hover:text-blue-300 transition underline"
-        >
-          ← Back to page 1
+        <Link href="/blog">
+          <Button variant="glass" size="sm" className="group">
+            <FaChevronLeft className="opacity-80 transition group-hover:-translate-x-1" />
+            Back to page 1
+          </Button>
         </Link>
       </div>
     );
@@ -71,8 +73,9 @@ async function BlogList({ page }: { page: number }) {
   );
 }
 
-export default function BlogPage({ searchParams }: BlogPageProps) {
-  const page = parseInt(searchParams.page || "1", 10);
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const { page: pageParam } = await searchParams;
+  const page = parseInt(pageParam || "1", 10);
   const validPage = isNaN(page) || page < 1 ? 1 : page;
 
   return (

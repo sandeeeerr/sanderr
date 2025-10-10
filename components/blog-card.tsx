@@ -6,8 +6,8 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { formatDate } from "@/lib/utils";
 import TagBadge from "./tag-badge";
-import type { BlogListItem } from "@/types/api";
 import { Button } from "./ui/button";
+import type { BlogListItem } from "@/types/api";
 
 type BlogCardProps = {
   post: BlogListItem;
@@ -93,7 +93,7 @@ export default function BlogCard({ post }: BlogCardProps) {
 
           <div className="mt-auto pt-4">
             <Link href={`/blog/${post.slug}`}>
-              <Button size="sm" className="rounded-full">
+              <Button variant="glass" size="sm">
                 Read more
               </Button>
             </Link>
@@ -107,7 +107,7 @@ export default function BlogCard({ post }: BlogCardProps) {
               src={post.cover_image_url}
               alt={post.title}
               quality={95}
-              className="object-cover object-center ml-5 rounded-t-lg shadow-lg overdlow-hidden"
+              className="object-cover object-center ml-5 rounded-t-lg shadow-lg overflow-hidden"
               fill
             />
           </div>

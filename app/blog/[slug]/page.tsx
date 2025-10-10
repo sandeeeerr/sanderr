@@ -11,13 +11,14 @@ import { FaChevronLeft } from "react-icons/fa6";
 import type { Metadata } from "next";
 
 type BlogPostPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const post = await getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     return {
@@ -49,7 +50,8 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -59,8 +61,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="flex flex-col items-center px-4 mx-auto md:max-w-screen-2xl sm:px-6 lg:px-8 py-8 md:py-10 max-w-full overflow-x-hidden">
       <article className="w-full max-w-[56rem]">
         {/* Back link */}
-        <Link href="/blog" className="inline-block mb-8">
-          <Button size="md" className="gap-2 rounded-full group">
+        <Link href="/blog" className="inline-block mb-4">
+          <Button variant="glass" size="sm" className="group">
             <FaChevronLeft className="opacity-80 transition group-hover:-translate-x-1" />
             Back to blog
           </Button>
@@ -68,20 +70,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Cover image */}
         {post.cover_image_url && (
-          <div className="relative w-full h-[300px] md:h-[350px] mb-8 rounded-2xl overflow-hidden">
+          <div className="relative w-full h-[180px] md:h-[350px] mb-2 rounded-2xl overflow-hidden">
             <Image
               src={post.cover_image_url}
               alt={post.title}
               fill
               className="object-cover"
               priority
+              loading="eager"
+              sizes="(max-width: 768px) 100vw, 896px"
+              quality={95}
             />
           </div>
         )}
 
         {/* Header */}
-        <header className="mb-8">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between mb-4">
+        <header className="mb-10">
+          <div className="flex flex-col gap-2 mb-8 md:gap-3 md:flex-row md:items-center md:justify-between md:mb-10">
             <div className="flex flex-wrap items-center gap-3">
               {post.category && (
                 <span className="text-sm uppercase tracking-wider text-white/50 font-semibold">
@@ -126,7 +131,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Back link (bottom) */}
         <Link href="/blog" className="inline-block">
-          <Button size="md" className="rounded-full gap-2 group">
+          <Button variant="glass" size="sm" className="group">
             <FaChevronLeft className="opacity-80 transition group-hover:-translate-x-1" />
             Back to blog
           </Button>

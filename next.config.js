@@ -17,12 +17,8 @@ const nextConfig = {
     ],
     formats: ['image/avif', 'image/webp'], // Use modern image formats
     minimumCacheTTL: 60, // Cache optimized images for 60 seconds
+    qualities: [75, 80, 90, 95, 100], // Configure allowed quality values
   },
-  experimental: {
-    serverActions: true,
-  },
-  // Enable production optimizations
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
