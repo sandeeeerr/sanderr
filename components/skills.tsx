@@ -54,7 +54,6 @@ export default function Skills({ skills }: SkillsProps) {
 
   const { data: wakatimeData } = useSWR<Wakatime>("/api/wakatime", fetcher);
   const [todayStats, setTodayStats] = useState<WakatimeToday | null>(null);
-  const [forceAnimate, setForceAnimate] = useState(false);
 
   useEffect(() => {
     const fetchTodayStats = async () => {
@@ -76,14 +75,6 @@ export default function Skills({ skills }: SkillsProps) {
     // Fetch every 1 minute for today stats to keep it fresh
     const interval = setInterval(fetchTodayStats, 60 * 1000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Force animation for all skills after 1 second to ensure they all animate
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setForceAnimate(true);
-    }, 1000);
-    return () => clearTimeout(timer);
   }, []);
 
   const totalSecondsAllTime = typeof wakatimeData?.seconds === 'number' && !Number.isNaN(wakatimeData.seconds)
@@ -167,6 +158,7 @@ const formattedTodayTime = formatTodayTime(todayTime);
       id="skills"
       ref={ref}
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      style={{ contentVisibility: "visible" }}
     >
       <SectionHeading>My skills</SectionHeading>
       {/* Experience card - separate row */}
@@ -271,9 +263,8 @@ const formattedTodayTime = formatTodayTime(todayTime);
               key={skill.id}
               variants={fadeInAnimationVariants}
               initial="initial"
-              animate={forceAnimate ? "animate" : undefined}
               whileInView="animate"
-              viewport={{ once: true, margin: "-200px", amount: 0.1 }}
+              viewport={{ once: true, amount: 0.1, margin: "-50px" }}
               custom={index}
             >
               <SkillIcon iconName={skill.icon_name} className="mr-2 text-[white/55]" />

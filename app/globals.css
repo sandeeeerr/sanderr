@@ -16,6 +16,13 @@ section {
   contain-intrinsic-size: auto 500px;
 }
 
+/* Ensure above-the-fold sections render immediately */
+#home,
+#about {
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}
+
 /* Optimize animations */
 [class*="motion"] {
   will-change: transform, opacity;
