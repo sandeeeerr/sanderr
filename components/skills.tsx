@@ -21,6 +21,7 @@ type Card = {
   value: any;
   tooltip: string;
   subtitle?: string;
+  dotColor?: string;
 };
 
 type WakatimeToday = {
@@ -53,6 +54,7 @@ export default function Skills({ skills }: SkillsProps) {
 
   const { data: wakatimeData } = useSWR<Wakatime>("/api/wakatime", fetcher);
   const [todayStats, setTodayStats] = useState<WakatimeToday | null>(null);
+  const [forceAnimate, setForceAnimate] = useState(false);
 
   useEffect(() => {
     const fetchTodayStats = async () => {
@@ -76,35 +78,89 @@ export default function Skills({ skills }: SkillsProps) {
     return () => clearInterval(interval);
   }, []);
 
+  // Force animation for all skills after 1 second to ensure they all animate
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setForceAnimate(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const totalSecondsAllTime = typeof wakatimeData?.seconds === 'number' && !Number.isNaN(wakatimeData.seconds)
     ? wakatimeData.seconds
     : 0
   const codingTime = `${Math.floor(totalSecondsAllTime / 60 / 60)} hrs, ${
-      Math.floor(totalSecondsAllTime / 60) % 60
-    } min`
-
-const totalSecondsToday = typeof todayStats?.data?.grand_total?.total_seconds === 'number'
-  ? todayStats.data.grand_total.total_seconds as number
-  : 0
-const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
-    Math.floor(totalSecondsToday / 60) % 60
+    Math.floor(totalSecondsAllTime / 60) % 60
   } min`
+
+// Use the digital format directly from Wakatime API to avoid timezone issues
+const todayTime = todayStats?.data?.grand_total?.digital 
+  ? todayStats.data.grand_total.digital 
+  : '0:00'
+
+// Format it nicely for display
+const formatTodayTime = (digital: string) => {
+  const [hours, minutes] = digital.split(':').map(Number);
+  if (hours > 0) {
+    return `${hours} hr${hours !== 1 ? 's' : ''}, ${minutes} min${minutes !== 1 ? 's' : ''}`;
+  }
+  return `${minutes} min${minutes !== 1 ? 's' : ''}`;
+}
+
+const formattedTodayTime = formatTodayTime(todayTime);
+
+  // Calculate years of experience since August 1, 2017
+  const calculateYearsOfExperience = () => {
+    const startDate = new Date(2017, 7, 1); // August 1, 2017 (month is 0-indexed)
+    const today = new Date();
+    
+    // Calculate full years
+    let years = today.getFullYear() - startDate.getFullYear();
+    let days = 0;
+    
+    // Adjust if birthday hasn't occurred yet this year
+    const monthDiff = today.getMonth() - startDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < startDate.getDate())) {
+      years--;
+    }
+    
+    // Calculate remaining days
+    const lastAnniversary = new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate());
+    if (today < lastAnniversary) {
+      lastAnniversary.setFullYear(today.getFullYear() - 1);
+    }
+    
+    const diffTime = today.getTime() - lastAnniversary.getTime();
+    days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    return `${years} years, ${days} days`;
+  };
+
+  const yearsOfExperience = calculateYearsOfExperience();
 
   const data: Card[] = [
     {
+      title: "Experience",
+      value: yearsOfExperience,
+      tooltip: "Time since starting my development journey on August 1, 2017.",
+      icon: "",
+      dotColor: "text-green-500",
+    },
+    {
       title: "Coding Time",
       value: codingTime,
-      tooltip: "Total coding time tracked since December 2023.",
-      subtitle: "Tracking started in April 2024.",
+      tooltip: "Total coding time tracked since April 2024.",
       icon: "",
+      dotColor: "text-green-500",
     },
     {
       title: "Today",
-      value: todayTime,
-      tooltip: "Total active coding time recorded since midnight.",
+      value: formattedTodayTime,
+      tooltip: "Total active coding time recorded since midnight (your timezone).",
       icon: "",
+      dotColor: "text-green-500",
     },
-  ];  
+  ];
 
   return (
     <section
@@ -113,13 +169,14 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
       <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap gap-2 justify-center mb-8 text-gray-800 text-md">
-        {data.map((item, index) => {
-          const { icon, title, value, tooltip, subtitle } = item;
+      {/* Experience card - separate row */}
+      <ul className="flex flex-wrap gap-2 justify-center mb-4 text-gray-800 text-md">
+        {data.slice(0, 1).map((item, index) => {
+          const { icon, title, value, tooltip, subtitle, dotColor = "text-green-500" } = item;
 
           return (
             <motion.li
-              className="py-2 pr-5 pl-4 rounded-2xl borderBlack  bg-white/5 backdrop-blur-lg hover:bg-white/10 text-white/80"
+              className="py-2 pr-5 pl-4 rounded-2xl borderBlack  bg-white/5 backdrop-blur-lg hover:bg-white/10 text-white/80 transition-all"
               key={title}
               variants={fadeInAnimationVariants}
               initial="initial"
@@ -132,16 +189,59 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
               <Tooltip.Provider delayDuration={100}>
                 <Tooltip.Root>
                   <Tooltip.Trigger asChild>
-                    <div className="flex flex-col">
-                      <div className="flex items-center">
-                        <span className="mr-2 text-green-500">
-                          <GoDotFill />
-                        </span>
-                        <span className="mr-2 font-bold cursor-pointer">
-                          {title}
-                          {icon}: {value}
-                        </span>
-                      </div>
+                    <div className="flex items-center gap-2 cursor-pointer">
+                      <span className={dotColor}>
+                        <GoDotFill />
+                      </span>
+                      <span className="font-bold whitespace-nowrap">
+                        {title}: <span className="font-normal">{value}</span>
+                      </span>
+                    </div>
+                  </Tooltip.Trigger>
+                  <Tooltip.Portal>
+                    <Tooltip.Content
+                      side="top"
+                      align="center"
+                      sideOffset={5}
+                      className="px-2 py-1 text-xs text-white bg-white/10 backdrop-blur-lg rounded-lg shadow-lg"
+                    >
+                      {tooltip}
+                      <Tooltip.Arrow className="fill-gray-800" />
+                    </Tooltip.Content>
+                  </Tooltip.Portal>
+                </Tooltip.Root>
+              </Tooltip.Provider>
+            </motion.li>
+          );
+        })}
+      </ul>
+      {/* Coding Time and Today - second row */}
+      <ul className="flex flex-wrap gap-2 justify-center mb-8 text-gray-800 text-md">
+        {data.slice(1).map((item, index) => {
+          const { icon, title, value, tooltip, subtitle, dotColor = "text-green-500" } = item;
+
+          return (
+            <motion.li
+              className="py-2 pr-5 pl-4 rounded-2xl borderBlack  bg-white/5 backdrop-blur-lg hover:bg-white/10 text-white/80 transition-all"
+              key={title}
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{
+                once: true,
+              }}
+              custom={index + 1}
+            >
+              <Tooltip.Provider delayDuration={100}>
+                <Tooltip.Root>
+                  <Tooltip.Trigger asChild>
+                    <div className="flex items-center gap-2 cursor-pointer">
+                      <span className={dotColor}>
+                        <GoDotFill />
+                      </span>
+                      <span className="font-bold whitespace-nowrap">
+                        {title}: <span className="font-normal">{value}</span>
+                      </span>
                     </div>
                   </Tooltip.Trigger>
                   <Tooltip.Portal>
@@ -171,8 +271,9 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
               key={skill.id}
               variants={fadeInAnimationVariants}
               initial="initial"
+              animate={forceAnimate ? "animate" : undefined}
               whileInView="animate"
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-200px", amount: 0.1 }}
               custom={index}
             >
               <SkillIcon iconName={skill.icon_name} className="mr-2 text-[white/55]" />

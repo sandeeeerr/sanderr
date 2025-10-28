@@ -91,6 +91,24 @@ section {
   .header-shell { width: 36rem; }
 }
 
+/* Vertical Timeline date spacing */
+.vertical-timeline-element-date {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+@media (max-width: 1169px) {
+  /* Vertical Timeline date spacing */
+  .vertical-timeline-element-date {
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+    margin-top: 0.25rem !important;
+    margin-bottom: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+
+}
+
 /* Prose styles for blog content */
 .prose {
   @apply text-white/80;
