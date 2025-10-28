@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { env } from '@/env'
 
-// Cache for 5 minutes to speed up WakaTime API
-export const revalidate = 300
+// Cache for 1 minute for today stats to keep it relatively fresh
+export const revalidate = 60
 
 export async function GET() {
   try {
@@ -14,7 +14,7 @@ export async function GET() {
             env.WAKATIME_API_KEY
           ).toString('base64')}`,
         },
-        next: { revalidate: 300 } // Cache for 5 minutes
+        next: { revalidate: 60 } // Cache for 1 minute for today stats
       }
     );
 
@@ -36,7 +36,7 @@ export async function GET() {
     }
     return NextResponse.json(normalized, {
       headers: {
-        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600'
+        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120'
       }
     });
   } catch (error) {

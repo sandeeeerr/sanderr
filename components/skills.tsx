@@ -57,7 +57,10 @@ export default function Skills({ skills }: SkillsProps) {
   useEffect(() => {
     const fetchTodayStats = async () => {
       try {
-        const response = await fetch("/api/wakatime/today", { cache: "no-store" });
+        // Add timestamp query param to bust client-side cache
+        const response = await fetch(`/api/wakatime/today?t=${Date.now()}`, { 
+          cache: "no-store"
+        });
         if (!response.ok) throw new Error("Failed to fetch today stats");
         const data = await response.json();
         setTodayStats(data);
@@ -68,8 +71,8 @@ export default function Skills({ skills }: SkillsProps) {
 
     fetchTodayStats();
 
-    // Increased interval to 5 minutes to reduce API calls
-    const interval = setInterval(fetchTodayStats, 5 * 60 * 1000);
+    // Fetch every 1 minute for today stats to keep it fresh
+    const interval = setInterval(fetchTodayStats, 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -159,20 +162,23 @@ const todayTime = `${Math.floor(totalSecondsToday / 60 / 60)} hrs, ${
         })}
       </ul>
       <ul className="flex flex-wrap gap-2 justify-center text-gray-800 text-md">
-        {skills.map((skill, index) => (
-          <motion.li
-            className="flex items-center px-5 py-2 rounded-2xl borderBlack  bg-white/5 backdrop-blur-lg hover:bg-white/10 text-white/80"
-            key={skill.id}
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            custom={index}
-          >
-            <SkillIcon iconName={skill.icon_name} className="mr-2 text-[white/55]" />
-            {skill.name}
-          </motion.li>
-        ))}
+        {skills
+          .filter((skill) => skill.visible)
+          .sort((a, b) => a.order_index - b.order_index)
+          .map((skill, index) => (
+            <motion.li
+              className="flex items-center px-5 py-2 rounded-2xl borderBlack  bg-white/5 backdrop-blur-lg hover:bg-white/10 text-white/80"
+              key={skill.id}
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              custom={index}
+            >
+              <SkillIcon iconName={skill.icon_name} className="mr-2 text-[white/55]" />
+              {skill.name}
+            </motion.li>
+          ))}
       </ul>
     </section>
   );
