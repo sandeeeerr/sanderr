@@ -52,7 +52,7 @@ export const experiencesData = [
     description:
     "Expanded skills in UX/UI and development, worked on numerous projects, and gained experience in Scrum and creative techniques.",
     icon: React.createElement(LuGraduationCap),
-    date: "2021 - present",
+    date: "2021 - 2025",
   },
   {
     title: "Internship, WebDeveloper",
